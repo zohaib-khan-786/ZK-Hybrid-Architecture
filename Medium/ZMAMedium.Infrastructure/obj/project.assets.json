@@ -1,0 +1,121 @@
+{
+  "version": 3,
+  "targets": {
+    "net9.0": {
+      "ZMAMedium.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "ZMAMedium.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ZMAMedium.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ZMAMedium.Application.dll": {}
+        }
+      },
+      "ZMAMedium.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/ZMAMedium.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ZMAMedium.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ZMAMedium.Application/1.0.0": {
+      "type": "project",
+      "path": "../ZMAMedium.Application/ZMAMedium.Application.csproj",
+      "msbuildProject": "../ZMAMedium.Application/ZMAMedium.Application.csproj"
+    },
+    "ZMAMedium.Domain/1.0.0": {
+      "type": "project",
+      "path": "../ZMAMedium.Domain/ZMAMedium.Domain.csproj",
+      "msbuildProject": "../ZMAMedium.Domain/ZMAMedium.Domain.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net9.0": [
+      "ZMAMedium.Application >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\pc\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Infrastructure\\ZMAMedium.Infrastructure.csproj",
+      "projectName": "ZMAMedium.Infrastructure",
+      "projectPath": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Infrastructure\\ZMAMedium.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
+      "outputPath": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Infrastructure\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net9.0"
+      ],
+      "sources": {
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json": {},
+        "https://www.nuget.org/api/v2/": {}
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "projectReferences": {
+            "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Application\\ZMAMedium.Application.csproj": {
+              "projectPath": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Application\\ZMAMedium.Application.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.300"
+    },
+    "frameworks": {
+      "net9.0": {
+        "targetAlias": "net9.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

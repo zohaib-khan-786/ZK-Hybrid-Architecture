@@ -1,0 +1,6 @@
+@ZMASmall.Presentation_HostAddress = http://localhost:5194
+
+GET {{ZMASmall.Presentation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,6 @@
+@ZMAMedium.Presentation_HostAddress = http://localhost:5170
+
+GET {{ZMAMedium.Presentation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

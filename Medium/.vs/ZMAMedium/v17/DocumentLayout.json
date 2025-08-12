@@ -1,0 +1,398 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ZK Hybrid Architecture\\Medium\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{158872D6-6B3E-43E1-848E-343F7CD9471A}|ZMAMedium.Presentation\\ZMAMedium.Presentation.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.presentation\\models\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{158872D6-6B3E-43E1-848E-343F7CD9471A}|ZMAMedium.Presentation\\ZMAMedium.Presentation.csproj|solutionrelative:zmamedium.presentation\\models\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{158872D6-6B3E-43E1-848E-343F7CD9471A}|ZMAMedium.Presentation\\ZMAMedium.Presentation.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.presentation\\api\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{158872D6-6B3E-43E1-848E-343F7CD9471A}|ZMAMedium.Presentation\\ZMAMedium.Presentation.csproj|solutionrelative:zmamedium.presentation\\api\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{158872D6-6B3E-43E1-848E-343F7CD9471A}|ZMAMedium.Presentation\\ZMAMedium.Presentation.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.presentation\\api\\controllers\\catalogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{158872D6-6B3E-43E1-848E-343F7CD9471A}|ZMAMedium.Presentation\\ZMAMedium.Presentation.csproj|solutionrelative:zmamedium.presentation\\api\\controllers\\catalogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99301C1B-D8B2-4A4B-AE5E-F038BC332140}|ZMAMedium.Infrastructure\\ZMAMedium.Infrastructure.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.infrastructure\\externalservices\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99301C1B-D8B2-4A4B-AE5E-F038BC332140}|ZMAMedium.Infrastructure\\ZMAMedium.Infrastructure.csproj|solutionrelative:zmamedium.infrastructure\\externalservices\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99301C1B-D8B2-4A4B-AE5E-F038BC332140}|ZMAMedium.Infrastructure\\ZMAMedium.Infrastructure.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.infrastructure\\externalservices\\paymentgateway.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99301C1B-D8B2-4A4B-AE5E-F038BC332140}|ZMAMedium.Infrastructure\\ZMAMedium.Infrastructure.csproj|solutionrelative:zmamedium.infrastructure\\externalservices\\paymentgateway.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99301C1B-D8B2-4A4B-AE5E-F038BC332140}|ZMAMedium.Infrastructure\\ZMAMedium.Infrastructure.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.infrastructure\\repositories\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99301C1B-D8B2-4A4B-AE5E-F038BC332140}|ZMAMedium.Infrastructure\\ZMAMedium.Infrastructure.csproj|solutionrelative:zmamedium.infrastructure\\repositories\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99301C1B-D8B2-4A4B-AE5E-F038BC332140}|ZMAMedium.Infrastructure\\ZMAMedium.Infrastructure.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99301C1B-D8B2-4A4B-AE5E-F038BC332140}|ZMAMedium.Infrastructure\\ZMAMedium.Infrastructure.csproj|solutionrelative:zmamedium.infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99301C1B-D8B2-4A4B-AE5E-F038BC332140}|ZMAMedium.Infrastructure\\ZMAMedium.Infrastructure.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.infrastructure\\persistence\\ordersdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99301C1B-D8B2-4A4B-AE5E-F038BC332140}|ZMAMedium.Infrastructure\\ZMAMedium.Infrastructure.csproj|solutionrelative:zmamedium.infrastructure\\persistence\\ordersdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99301C1B-D8B2-4A4B-AE5E-F038BC332140}|ZMAMedium.Infrastructure\\ZMAMedium.Infrastructure.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.infrastructure\\persistence\\catalogdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99301C1B-D8B2-4A4B-AE5E-F038BC332140}|ZMAMedium.Infrastructure\\ZMAMedium.Infrastructure.csproj|solutionrelative:zmamedium.infrastructure\\persistence\\catalogdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ACCEC0F-6009-4FAD-B5EB-3B394F91E424}|ZMAMedium.Application\\ZMAMedium.Application.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.application\\shared\\exceptions\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ACCEC0F-6009-4FAD-B5EB-3B394F91E424}|ZMAMedium.Application\\ZMAMedium.Application.csproj|solutionrelative:zmamedium.application\\shared\\exceptions\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ACCEC0F-6009-4FAD-B5EB-3B394F91E424}|ZMAMedium.Application\\ZMAMedium.Application.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.application\\shared\\validators\\createproductvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ACCEC0F-6009-4FAD-B5EB-3B394F91E424}|ZMAMedium.Application\\ZMAMedium.Application.csproj|solutionrelative:zmamedium.application\\shared\\validators\\createproductvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ACCEC0F-6009-4FAD-B5EB-3B394F91E424}|ZMAMedium.Application\\ZMAMedium.Application.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.application\\ordersmodule\\dtos\\orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ACCEC0F-6009-4FAD-B5EB-3B394F91E424}|ZMAMedium.Application\\ZMAMedium.Application.csproj|solutionrelative:zmamedium.application\\ordersmodule\\dtos\\orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ACCEC0F-6009-4FAD-B5EB-3B394F91E424}|ZMAMedium.Application\\ZMAMedium.Application.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.application\\ordersmodule\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ACCEC0F-6009-4FAD-B5EB-3B394F91E424}|ZMAMedium.Application\\ZMAMedium.Application.csproj|solutionrelative:zmamedium.application\\ordersmodule\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ACCEC0F-6009-4FAD-B5EB-3B394F91E424}|ZMAMedium.Application\\ZMAMedium.Application.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.application\\ordersmodule\\interfaces\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ACCEC0F-6009-4FAD-B5EB-3B394F91E424}|ZMAMedium.Application\\ZMAMedium.Application.csproj|solutionrelative:zmamedium.application\\ordersmodule\\interfaces\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ACCEC0F-6009-4FAD-B5EB-3B394F91E424}|ZMAMedium.Application\\ZMAMedium.Application.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.application\\catalogmodule\\dtos\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ACCEC0F-6009-4FAD-B5EB-3B394F91E424}|ZMAMedium.Application\\ZMAMedium.Application.csproj|solutionrelative:zmamedium.application\\catalogmodule\\dtos\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ACCEC0F-6009-4FAD-B5EB-3B394F91E424}|ZMAMedium.Application\\ZMAMedium.Application.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.application\\catalogmodule\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ACCEC0F-6009-4FAD-B5EB-3B394F91E424}|ZMAMedium.Application\\ZMAMedium.Application.csproj|solutionrelative:zmamedium.application\\catalogmodule\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ACCEC0F-6009-4FAD-B5EB-3B394F91E424}|ZMAMedium.Application\\ZMAMedium.Application.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.application\\catalogmodule\\interfaces\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ACCEC0F-6009-4FAD-B5EB-3B394F91E424}|ZMAMedium.Application\\ZMAMedium.Application.csproj|solutionrelative:zmamedium.application\\catalogmodule\\interfaces\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{505FF15D-7C30-4CAD-9DD7-B7916318DE0F}|ZMAMedium.Domain\\ZMAMedium.Domain.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.domain\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505FF15D-7C30-4CAD-9DD7-B7916318DE0F}|ZMAMedium.Domain\\ZMAMedium.Domain.csproj|solutionrelative:zmamedium.domain\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{505FF15D-7C30-4CAD-9DD7-B7916318DE0F}|ZMAMedium.Domain\\ZMAMedium.Domain.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.domain\\enums\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505FF15D-7C30-4CAD-9DD7-B7916318DE0F}|ZMAMedium.Domain\\ZMAMedium.Domain.csproj|solutionrelative:zmamedium.domain\\enums\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{505FF15D-7C30-4CAD-9DD7-B7916318DE0F}|ZMAMedium.Domain\\ZMAMedium.Domain.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.domain\\valueobjects\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505FF15D-7C30-4CAD-9DD7-B7916318DE0F}|ZMAMedium.Domain\\ZMAMedium.Domain.csproj|solutionrelative:zmamedium.domain\\valueobjects\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{505FF15D-7C30-4CAD-9DD7-B7916318DE0F}|ZMAMedium.Domain\\ZMAMedium.Domain.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.domain\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505FF15D-7C30-4CAD-9DD7-B7916318DE0F}|ZMAMedium.Domain\\ZMAMedium.Domain.csproj|solutionrelative:zmamedium.domain\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{505FF15D-7C30-4CAD-9DD7-B7916318DE0F}|ZMAMedium.Domain\\ZMAMedium.Domain.csproj|d:\\zk hybrid architecture\\medium\\zmamedium.domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505FF15D-7C30-4CAD-9DD7-B7916318DE0F}|ZMAMedium.Domain\\ZMAMedium.Domain.csproj|solutionrelative:zmamedium.domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductViewModel.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Presentation\\Models\\ProductViewModel.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Presentation\\Models\\ProductViewModel.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Presentation\\Models\\ProductViewModel.cs",
+              "RelativeToolTip": "ZMAMedium.Presentation\\Models\\ProductViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:19:49.904Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Presentation\\API\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Presentation\\API\\Controllers\\OrdersController.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Presentation\\API\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "ZMAMedium.Presentation\\API\\Controllers\\OrdersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:19:34.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CatalogController.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Presentation\\API\\Controllers\\CatalogController.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Presentation\\API\\Controllers\\CatalogController.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Presentation\\API\\Controllers\\CatalogController.cs",
+              "RelativeToolTip": "ZMAMedium.Presentation\\API\\Controllers\\CatalogController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:19:23.747Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmailSender.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Infrastructure\\ExternalServices\\EmailSender.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Infrastructure\\ExternalServices\\EmailSender.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Infrastructure\\ExternalServices\\EmailSender.cs",
+              "RelativeToolTip": "ZMAMedium.Infrastructure\\ExternalServices\\EmailSender.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:19:03.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PaymentGateway.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Infrastructure\\ExternalServices\\PaymentGateway.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Infrastructure\\ExternalServices\\PaymentGateway.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Infrastructure\\ExternalServices\\PaymentGateway.cs",
+              "RelativeToolTip": "ZMAMedium.Infrastructure\\ExternalServices\\PaymentGateway.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:18:58.084Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OrderRepository.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Infrastructure\\Repositories\\OrderRepository.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Infrastructure\\Repositories\\OrderRepository.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Infrastructure\\Repositories\\OrderRepository.cs",
+              "RelativeToolTip": "ZMAMedium.Infrastructure\\Repositories\\OrderRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:18:50.56Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Infrastructure\\Repositories\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Infrastructure\\Repositories\\ProductRepository.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Infrastructure\\Repositories\\ProductRepository.cs",
+              "RelativeToolTip": "ZMAMedium.Infrastructure\\Repositories\\ProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:18:45.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "OrdersDbContext.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Infrastructure\\Persistence\\OrdersDbContext.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Infrastructure\\Persistence\\OrdersDbContext.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Infrastructure\\Persistence\\OrdersDbContext.cs",
+              "RelativeToolTip": "ZMAMedium.Infrastructure\\Persistence\\OrdersDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:18:36.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CatalogDbContext.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Infrastructure\\Persistence\\CatalogDbContext.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Infrastructure\\Persistence\\CatalogDbContext.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Infrastructure\\Persistence\\CatalogDbContext.cs",
+              "RelativeToolTip": "ZMAMedium.Infrastructure\\Persistence\\CatalogDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:18:23.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "NotFoundException.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Application\\Shared\\Exceptions\\NotFoundException.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Application\\Shared\\Exceptions\\NotFoundException.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Application\\Shared\\Exceptions\\NotFoundException.cs",
+              "RelativeToolTip": "ZMAMedium.Application\\Shared\\Exceptions\\NotFoundException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:17:58.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CreateProductValidator.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Application\\Shared\\Validators\\CreateProductValidator.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Application\\Shared\\Validators\\CreateProductValidator.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Application\\Shared\\Validators\\CreateProductValidator.cs",
+              "RelativeToolTip": "ZMAMedium.Application\\Shared\\Validators\\CreateProductValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:17:51.566Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "OrderDto.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Application\\OrdersModule\\DTOs\\OrderDto.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Application\\OrdersModule\\DTOs\\OrderDto.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Application\\OrdersModule\\DTOs\\OrderDto.cs",
+              "RelativeToolTip": "ZMAMedium.Application\\OrdersModule\\DTOs\\OrderDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:17:41.626Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Application\\OrdersModule\\Services\\OrderService.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Application\\OrdersModule\\Services\\OrderService.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Application\\OrdersModule\\Services\\OrderService.cs",
+              "RelativeToolTip": "ZMAMedium.Application\\OrdersModule\\Services\\OrderService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:17:34.654Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IOrderService.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Application\\OrdersModule\\Interfaces\\IOrderService.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Application\\OrdersModule\\Interfaces\\IOrderService.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Application\\OrdersModule\\Interfaces\\IOrderService.cs",
+              "RelativeToolTip": "ZMAMedium.Application\\OrdersModule\\Interfaces\\IOrderService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:17:27.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ProductDto.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Application\\CatalogModule\\DTOs\\ProductDto.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Application\\CatalogModule\\DTOs\\ProductDto.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Application\\CatalogModule\\DTOs\\ProductDto.cs",
+              "RelativeToolTip": "ZMAMedium.Application\\CatalogModule\\DTOs\\ProductDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:17:09.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Application\\CatalogModule\\Services\\ProductService.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Application\\CatalogModule\\Services\\ProductService.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Application\\CatalogModule\\Services\\ProductService.cs",
+              "RelativeToolTip": "ZMAMedium.Application\\CatalogModule\\Services\\ProductService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:17:01.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IProductService.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Application\\CatalogModule\\Interfaces\\IProductService.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Application\\CatalogModule\\Interfaces\\IProductService.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Application\\CatalogModule\\Interfaces\\IProductService.cs",
+              "RelativeToolTip": "ZMAMedium.Application\\CatalogModule\\Interfaces\\IProductService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:16:52.517Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UserRole.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Domain\\Enums\\UserRole.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Domain\\Enums\\UserRole.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Domain\\Enums\\UserRole.cs",
+              "RelativeToolTip": "ZMAMedium.Domain\\Enums\\UserRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:16:28.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "OrderStatus.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Domain\\Enums\\OrderStatus.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Domain\\Enums\\OrderStatus.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Domain\\Enums\\OrderStatus.cs",
+              "RelativeToolTip": "ZMAMedium.Domain\\Enums\\OrderStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:16:20.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Address.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Domain\\ValueObjects\\Address.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Domain\\ValueObjects\\Address.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Domain\\ValueObjects\\Address.cs",
+              "RelativeToolTip": "ZMAMedium.Domain\\ValueObjects\\Address.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:16:12.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Order.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Domain\\Entities\\Order.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Domain\\Entities\\Order.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Domain\\Entities\\Order.cs",
+              "RelativeToolTip": "ZMAMedium.Domain\\Entities\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:16:03.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Domain\\Entities\\Product.cs",
+              "RelativeDocumentMoniker": "ZMAMedium.Domain\\Entities\\Product.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Medium\\ZMAMedium.Domain\\Entities\\Product.cs",
+              "RelativeToolTip": "ZMAMedium.Domain\\Entities\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T13:15:55.534Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

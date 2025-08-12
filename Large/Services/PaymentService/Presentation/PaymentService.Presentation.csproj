@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers - Copy\**" />
+    <Compile Remove="DTOs - Copy\**" />
+    <Compile Remove="Filters - Copy\**" />
+    <Compile Remove="Middleware - Copy\**" />
+    <Content Remove="Controllers - Copy\**" />
+    <Content Remove="DTOs - Copy\**" />
+    <Content Remove="Filters - Copy\**" />
+    <Content Remove="Middleware - Copy\**" />
+    <EmbeddedResource Remove="Controllers - Copy\**" />
+    <EmbeddedResource Remove="DTOs - Copy\**" />
+    <EmbeddedResource Remove="Filters - Copy\**" />
+    <EmbeddedResource Remove="Middleware - Copy\**" />
+    <None Remove="Controllers - Copy\**" />
+    <None Remove="DTOs - Copy\**" />
+    <None Remove="Filters - Copy\**" />
+    <None Remove="Middleware - Copy\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\SharedKernel\SharedKernel.csproj" />
+    <ProjectReference Include="..\Application\PaymentService.Application.csproj" />
+    <ProjectReference Include="..\Infrastructure\PaymentService.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="DTOs\" />
+    <Folder Include="Filters\" />
+    <Folder Include="Middleware\" />
+  </ItemGroup>
+
+</Project>

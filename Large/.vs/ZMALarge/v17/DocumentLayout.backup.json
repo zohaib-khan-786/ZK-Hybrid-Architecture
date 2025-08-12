@@ -1,0 +1,505 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ZK Hybrid Architecture\\Large\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6F402521-35E7-457B-B317-407466D350FC}|Gateways\\Auth Service\\AuthService.csproj|d:\\zk hybrid architecture\\large\\gateways\\auth service\\persistence\\authdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F402521-35E7-457B-B317-407466D350FC}|Gateways\\Auth Service\\AuthService.csproj|solutionrelative:gateways\\auth service\\persistence\\authdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F402521-35E7-457B-B317-407466D350FC}|Gateways\\Auth Service\\AuthService.csproj|d:\\zk hybrid architecture\\large\\gateways\\auth service\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F402521-35E7-457B-B317-407466D350FC}|Gateways\\Auth Service\\AuthService.csproj|solutionrelative:gateways\\auth service\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F402521-35E7-457B-B317-407466D350FC}|Gateways\\Auth Service\\AuthService.csproj|d:\\zk hybrid architecture\\large\\gateways\\auth service\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F402521-35E7-457B-B317-407466D350FC}|Gateways\\Auth Service\\AuthService.csproj|solutionrelative:gateways\\auth service\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3923D700-F15B-46B7-81D4-08F4EBD493A5}|Gateways\\API Gateway\\ApiGateway.csproj|d:\\zk hybrid architecture\\large\\gateways\\api gateway\\middleware\\routingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3923D700-F15B-46B7-81D4-08F4EBD493A5}|Gateways\\API Gateway\\ApiGateway.csproj|solutionrelative:gateways\\api gateway\\middleware\\routingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3923D700-F15B-46B7-81D4-08F4EBD493A5}|Gateways\\API Gateway\\ApiGateway.csproj|d:\\zk hybrid architecture\\large\\gateways\\api gateway\\controllers\\gatewaycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3923D700-F15B-46B7-81D4-08F4EBD493A5}|Gateways\\API Gateway\\ApiGateway.csproj|solutionrelative:gateways\\api gateway\\controllers\\gatewaycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{480F8119-3276-4728-8078-AF96D043CE3B}|Services\\CatalogService\\Presentation\\CatalogService.Presentation.csproj|d:\\zk hybrid architecture\\large\\services\\catalogservice\\presentation\\filters\\validationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{480F8119-3276-4728-8078-AF96D043CE3B}|Services\\CatalogService\\Presentation\\CatalogService.Presentation.csproj|solutionrelative:services\\catalogservice\\presentation\\filters\\validationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{480F8119-3276-4728-8078-AF96D043CE3B}|Services\\CatalogService\\Presentation\\CatalogService.Presentation.csproj|d:\\zk hybrid architecture\\large\\services\\catalogservice\\presentation\\middleware\\exceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{480F8119-3276-4728-8078-AF96D043CE3B}|Services\\CatalogService\\Presentation\\CatalogService.Presentation.csproj|solutionrelative:services\\catalogservice\\presentation\\middleware\\exceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{480F8119-3276-4728-8078-AF96D043CE3B}|Services\\CatalogService\\Presentation\\CatalogService.Presentation.csproj|d:\\zk hybrid architecture\\large\\services\\catalogservice\\presentation\\dtos\\productcreaterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{480F8119-3276-4728-8078-AF96D043CE3B}|Services\\CatalogService\\Presentation\\CatalogService.Presentation.csproj|solutionrelative:services\\catalogservice\\presentation\\dtos\\productcreaterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{480F8119-3276-4728-8078-AF96D043CE3B}|Services\\CatalogService\\Presentation\\CatalogService.Presentation.csproj|d:\\zk hybrid architecture\\large\\services\\catalogservice\\presentation\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{480F8119-3276-4728-8078-AF96D043CE3B}|Services\\CatalogService\\Presentation\\CatalogService.Presentation.csproj|solutionrelative:services\\catalogservice\\presentation\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{761F9285-252D-4835-A125-28F7B8A676AA}|Services\\CatalogService\\Infrastructure\\CatalogService.Infrastructure.csproj|d:\\zk hybrid architecture\\large\\services\\catalogservice\\infrastructure\\services\\externalpricingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{761F9285-252D-4835-A125-28F7B8A676AA}|Services\\CatalogService\\Infrastructure\\CatalogService.Infrastructure.csproj|solutionrelative:services\\catalogservice\\infrastructure\\services\\externalpricingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{761F9285-252D-4835-A125-28F7B8A676AA}|Services\\CatalogService\\Infrastructure\\CatalogService.Infrastructure.csproj|d:\\zk hybrid architecture\\large\\services\\catalogservice\\infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{761F9285-252D-4835-A125-28F7B8A676AA}|Services\\CatalogService\\Infrastructure\\CatalogService.Infrastructure.csproj|solutionrelative:services\\catalogservice\\infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{761F9285-252D-4835-A125-28F7B8A676AA}|Services\\CatalogService\\Infrastructure\\CatalogService.Infrastructure.csproj|d:\\zk hybrid architecture\\large\\services\\catalogservice\\infrastructure\\persistence\\configurations\\productconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{761F9285-252D-4835-A125-28F7B8A676AA}|Services\\CatalogService\\Infrastructure\\CatalogService.Infrastructure.csproj|solutionrelative:services\\catalogservice\\infrastructure\\persistence\\configurations\\productconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{761F9285-252D-4835-A125-28F7B8A676AA}|Services\\CatalogService\\Infrastructure\\CatalogService.Infrastructure.csproj|d:\\zk hybrid architecture\\large\\services\\catalogservice\\infrastructure\\persistence\\catalogdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{761F9285-252D-4835-A125-28F7B8A676AA}|Services\\CatalogService\\Infrastructure\\CatalogService.Infrastructure.csproj|solutionrelative:services\\catalogservice\\infrastructure\\persistence\\catalogdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4BDAD61-1912-4BE3-B80F-E19BCDFDD5AB}|Services\\CatalogService\\Application\\CatalogService.Application.csproj|d:\\zk hybrid architecture\\large\\services\\catalogservice\\application\\queries\\getproductbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4BDAD61-1912-4BE3-B80F-E19BCDFDD5AB}|Services\\CatalogService\\Application\\CatalogService.Application.csproj|solutionrelative:services\\catalogservice\\application\\queries\\getproductbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4BDAD61-1912-4BE3-B80F-E19BCDFDD5AB}|Services\\CatalogService\\Application\\CatalogService.Application.csproj|d:\\zk hybrid architecture\\large\\services\\catalogservice\\application\\commands\\createproductcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4BDAD61-1912-4BE3-B80F-E19BCDFDD5AB}|Services\\CatalogService\\Application\\CatalogService.Application.csproj|solutionrelative:services\\catalogservice\\application\\commands\\createproductcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4BDAD61-1912-4BE3-B80F-E19BCDFDD5AB}|Services\\CatalogService\\Application\\CatalogService.Application.csproj|d:\\zk hybrid architecture\\large\\services\\catalogservice\\application\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4BDAD61-1912-4BE3-B80F-E19BCDFDD5AB}|Services\\CatalogService\\Application\\CatalogService.Application.csproj|solutionrelative:services\\catalogservice\\application\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4BDAD61-1912-4BE3-B80F-E19BCDFDD5AB}|Services\\CatalogService\\Application\\CatalogService.Application.csproj|d:\\zk hybrid architecture\\large\\services\\catalogservice\\application\\interfaces\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4BDAD61-1912-4BE3-B80F-E19BCDFDD5AB}|Services\\CatalogService\\Application\\CatalogService.Application.csproj|solutionrelative:services\\catalogservice\\application\\interfaces\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4BDAD61-1912-4BE3-B80F-E19BCDFDD5AB}|Services\\CatalogService\\Application\\CatalogService.Application.csproj|d:\\zk hybrid architecture\\large\\services\\catalogservice\\application\\dtos\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4BDAD61-1912-4BE3-B80F-E19BCDFDD5AB}|Services\\CatalogService\\Application\\CatalogService.Application.csproj|solutionrelative:services\\catalogservice\\application\\dtos\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBD80B0F-CDC0-439A-904B-F2C2A08AC911}|Services\\CatalogService\\Domain\\CatalogService.Domain.csproj|d:\\zk hybrid architecture\\large\\services\\catalogservice\\domain\\interfaces\\iaggregateroot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EBD80B0F-CDC0-439A-904B-F2C2A08AC911}|Services\\CatalogService\\Domain\\CatalogService.Domain.csproj|solutionrelative:services\\catalogservice\\domain\\interfaces\\iaggregateroot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBD80B0F-CDC0-439A-904B-F2C2A08AC911}|Services\\CatalogService\\Domain\\CatalogService.Domain.csproj|d:\\zk hybrid architecture\\large\\services\\catalogservice\\domain\\events\\productcreatedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EBD80B0F-CDC0-439A-904B-F2C2A08AC911}|Services\\CatalogService\\Domain\\CatalogService.Domain.csproj|solutionrelative:services\\catalogservice\\domain\\events\\productcreatedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBD80B0F-CDC0-439A-904B-F2C2A08AC911}|Services\\CatalogService\\Domain\\CatalogService.Domain.csproj|d:\\zk hybrid architecture\\large\\services\\catalogservice\\domain\\exceptions\\domainexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EBD80B0F-CDC0-439A-904B-F2C2A08AC911}|Services\\CatalogService\\Domain\\CatalogService.Domain.csproj|solutionrelative:services\\catalogservice\\domain\\exceptions\\domainexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBD80B0F-CDC0-439A-904B-F2C2A08AC911}|Services\\CatalogService\\Domain\\CatalogService.Domain.csproj|d:\\zk hybrid architecture\\large\\services\\catalogservice\\domain\\valueobjects\\money.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EBD80B0F-CDC0-439A-904B-F2C2A08AC911}|Services\\CatalogService\\Domain\\CatalogService.Domain.csproj|solutionrelative:services\\catalogservice\\domain\\valueobjects\\money.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBD80B0F-CDC0-439A-904B-F2C2A08AC911}|Services\\CatalogService\\Domain\\CatalogService.Domain.csproj|d:\\zk hybrid architecture\\large\\services\\catalogservice\\domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EBD80B0F-CDC0-439A-904B-F2C2A08AC911}|Services\\CatalogService\\Domain\\CatalogService.Domain.csproj|solutionrelative:services\\catalogservice\\domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{067D3395-2CED-4A60-AC18-FA9F87158D28}|Services\\PaymentService\\Presentation\\PaymentService.Presentation.csproj|d:\\zk hybrid architecture\\large\\services\\paymentservice\\presentation\\paymentservice.presentation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{067D3395-2CED-4A60-AC18-FA9F87158D28}|Services\\PaymentService\\Presentation\\PaymentService.Presentation.csproj|solutionrelative:services\\paymentservice\\presentation\\paymentservice.presentation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9432CBC4-EC34-4D62-A3F1-45DF2F914F13}|Services\\PaymentService\\Infrastructure\\PaymentService.Infrastructure.csproj|d:\\zk hybrid architecture\\large\\services\\paymentservice\\infrastructure\\paymentservice.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9432CBC4-EC34-4D62-A3F1-45DF2F914F13}|Services\\PaymentService\\Infrastructure\\PaymentService.Infrastructure.csproj|solutionrelative:services\\paymentservice\\infrastructure\\paymentservice.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5447B431-5B3A-47D6-A428-CFC01D71137C}|Services\\PaymentService\\Domain\\PaymentService.Domain.csproj|d:\\zk hybrid architecture\\large\\services\\paymentservice\\domain\\paymentservice.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5447B431-5B3A-47D6-A428-CFC01D71137C}|Services\\PaymentService\\Domain\\PaymentService.Domain.csproj|solutionrelative:services\\paymentservice\\domain\\paymentservice.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB03557D-887D-4B33-BE39-DDA4116D18EF}|Services\\OrderService\\Presentation\\OrderService.Presentation.csproj|d:\\zk hybrid architecture\\large\\services\\orderservice\\presentation\\orderservice.presentation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{DB03557D-887D-4B33-BE39-DDA4116D18EF}|Services\\OrderService\\Presentation\\OrderService.Presentation.csproj|solutionrelative:services\\orderservice\\presentation\\orderservice.presentation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F402521-35E7-457B-B317-407466D350FC}|Gateways\\Auth Service\\AuthService.csproj|d:\\zk hybrid architecture\\large\\gateways\\auth service\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F402521-35E7-457B-B317-407466D350FC}|Gateways\\Auth Service\\AuthService.csproj|solutionrelative:gateways\\auth service\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3923D700-F15B-46B7-81D4-08F4EBD493A5}|Gateways\\API Gateway\\ApiGateway.csproj|d:\\zk hybrid architecture\\large\\gateways\\api gateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3923D700-F15B-46B7-81D4-08F4EBD493A5}|Gateways\\API Gateway\\ApiGateway.csproj|solutionrelative:gateways\\api gateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{480F8119-3276-4728-8078-AF96D043CE3B}|Services\\CatalogService\\Presentation\\CatalogService.Presentation.csproj|d:\\zk hybrid architecture\\large\\services\\catalogservice\\presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{480F8119-3276-4728-8078-AF96D043CE3B}|Services\\CatalogService\\Presentation\\CatalogService.Presentation.csproj|solutionrelative:services\\catalogservice\\presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthDbContext.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Gateways\\Auth Service\\Persistence\\AuthDbContext.cs",
+              "RelativeDocumentMoniker": "Gateways\\Auth Service\\Persistence\\AuthDbContext.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Gateways\\Auth Service\\Persistence\\AuthDbContext.cs",
+              "RelativeToolTip": "Gateways\\Auth Service\\Persistence\\AuthDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:28:42.845Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TokenService.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Gateways\\Auth Service\\Services\\TokenService.cs",
+              "RelativeDocumentMoniker": "Gateways\\Auth Service\\Services\\TokenService.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Gateways\\Auth Service\\Services\\TokenService.cs",
+              "RelativeToolTip": "Gateways\\Auth Service\\Services\\TokenService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:28:33.578Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Gateways\\Auth Service\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Gateways\\Auth Service\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Gateways\\Auth Service\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Gateways\\Auth Service\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:28:23.901Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RoutingMiddleware.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Gateways\\API Gateway\\Middleware\\RoutingMiddleware.cs",
+              "RelativeDocumentMoniker": "Gateways\\API Gateway\\Middleware\\RoutingMiddleware.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Gateways\\API Gateway\\Middleware\\RoutingMiddleware.cs",
+              "RelativeToolTip": "Gateways\\API Gateway\\Middleware\\RoutingMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:26:58.39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GatewayController.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Gateways\\API Gateway\\Controllers\\GatewayController.cs",
+              "RelativeDocumentMoniker": "Gateways\\API Gateway\\Controllers\\GatewayController.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Gateways\\API Gateway\\Controllers\\GatewayController.cs",
+              "RelativeToolTip": "Gateways\\API Gateway\\Controllers\\GatewayController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:26:44.507Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ValidationFilter.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Presentation\\Filters\\ValidationFilter.cs",
+              "RelativeDocumentMoniker": "Services\\CatalogService\\Presentation\\Filters\\ValidationFilter.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Presentation\\Filters\\ValidationFilter.cs",
+              "RelativeToolTip": "Services\\CatalogService\\Presentation\\Filters\\ValidationFilter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:24:44.145Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ExceptionHandlingMiddleware.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Presentation\\Middleware\\ExceptionHandlingMiddleware.cs",
+              "RelativeDocumentMoniker": "Services\\CatalogService\\Presentation\\Middleware\\ExceptionHandlingMiddleware.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Presentation\\Middleware\\ExceptionHandlingMiddleware.cs",
+              "RelativeToolTip": "Services\\CatalogService\\Presentation\\Middleware\\ExceptionHandlingMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:24:35.345Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProductCreateRequest.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Presentation\\DTOs\\ProductCreateRequest.cs",
+              "RelativeDocumentMoniker": "Services\\CatalogService\\Presentation\\DTOs\\ProductCreateRequest.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Presentation\\DTOs\\ProductCreateRequest.cs",
+              "RelativeToolTip": "Services\\CatalogService\\Presentation\\DTOs\\ProductCreateRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:24:23.082Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Presentation\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "Services\\CatalogService\\Presentation\\Controllers\\ProductsController.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Presentation\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "Services\\CatalogService\\Presentation\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:24:11.763Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ExternalPricingService.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Infrastructure\\Services\\ExternalPricingService.cs",
+              "RelativeDocumentMoniker": "Services\\CatalogService\\Infrastructure\\Services\\ExternalPricingService.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Infrastructure\\Services\\ExternalPricingService.cs",
+              "RelativeToolTip": "Services\\CatalogService\\Infrastructure\\Services\\ExternalPricingService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:23:25.411Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Infrastructure\\Repositories\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "Services\\CatalogService\\Infrastructure\\Repositories\\ProductRepository.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Infrastructure\\Repositories\\ProductRepository.cs",
+              "RelativeToolTip": "Services\\CatalogService\\Infrastructure\\Repositories\\ProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:23:11.185Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ProductConfiguration.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Infrastructure\\Persistence\\Configurations\\ProductConfiguration.cs",
+              "RelativeDocumentMoniker": "Services\\CatalogService\\Infrastructure\\Persistence\\Configurations\\ProductConfiguration.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Infrastructure\\Persistence\\Configurations\\ProductConfiguration.cs",
+              "RelativeToolTip": "Services\\CatalogService\\Infrastructure\\Persistence\\Configurations\\ProductConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:22:58.841Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CatalogDbContext.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Infrastructure\\Persistence\\CatalogDbContext.cs",
+              "RelativeDocumentMoniker": "Services\\CatalogService\\Infrastructure\\Persistence\\CatalogDbContext.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Infrastructure\\Persistence\\CatalogDbContext.cs",
+              "RelativeToolTip": "Services\\CatalogService\\Infrastructure\\Persistence\\CatalogDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:22:49.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "GetProductByIdQuery.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Application\\Queries\\GetProductByIdQuery.cs",
+              "RelativeDocumentMoniker": "Services\\CatalogService\\Application\\Queries\\GetProductByIdQuery.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Application\\Queries\\GetProductByIdQuery.cs",
+              "RelativeToolTip": "Services\\CatalogService\\Application\\Queries\\GetProductByIdQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:22:19.589Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CreateProductCommand.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Application\\Commands\\CreateProductCommand.cs",
+              "RelativeDocumentMoniker": "Services\\CatalogService\\Application\\Commands\\CreateProductCommand.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Application\\Commands\\CreateProductCommand.cs",
+              "RelativeToolTip": "Services\\CatalogService\\Application\\Commands\\CreateProductCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:22:09.302Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Application\\Services\\ProductService.cs",
+              "RelativeDocumentMoniker": "Services\\CatalogService\\Application\\Services\\ProductService.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Application\\Services\\ProductService.cs",
+              "RelativeToolTip": "Services\\CatalogService\\Application\\Services\\ProductService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:21:33.134Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IProductRepository.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Application\\Interfaces\\IProductRepository.cs",
+              "RelativeDocumentMoniker": "Services\\CatalogService\\Application\\Interfaces\\IProductRepository.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Application\\Interfaces\\IProductRepository.cs",
+              "RelativeToolTip": "Services\\CatalogService\\Application\\Interfaces\\IProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:21:23.455Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ProductDto.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Application\\DTOs\\ProductDto.cs",
+              "RelativeDocumentMoniker": "Services\\CatalogService\\Application\\DTOs\\ProductDto.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Application\\DTOs\\ProductDto.cs",
+              "RelativeToolTip": "Services\\CatalogService\\Application\\DTOs\\ProductDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:21:08.308Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IAggregateRoot.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Domain\\Interfaces\\IAggregateRoot.cs",
+              "RelativeDocumentMoniker": "Services\\CatalogService\\Domain\\Interfaces\\IAggregateRoot.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Domain\\Interfaces\\IAggregateRoot.cs",
+              "RelativeToolTip": "Services\\CatalogService\\Domain\\Interfaces\\IAggregateRoot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:20:42.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ProductCreatedEvent.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Domain\\Events\\ProductCreatedEvent.cs",
+              "RelativeDocumentMoniker": "Services\\CatalogService\\Domain\\Events\\ProductCreatedEvent.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Domain\\Events\\ProductCreatedEvent.cs",
+              "RelativeToolTip": "Services\\CatalogService\\Domain\\Events\\ProductCreatedEvent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:20:26.123Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "DomainException.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Domain\\Exceptions\\DomainException.cs",
+              "RelativeDocumentMoniker": "Services\\CatalogService\\Domain\\Exceptions\\DomainException.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Domain\\Exceptions\\DomainException.cs",
+              "RelativeToolTip": "Services\\CatalogService\\Domain\\Exceptions\\DomainException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:20:12.07Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Money.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Domain\\ValueObjects\\Money.cs",
+              "RelativeDocumentMoniker": "Services\\CatalogService\\Domain\\ValueObjects\\Money.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Domain\\ValueObjects\\Money.cs",
+              "RelativeToolTip": "Services\\CatalogService\\Domain\\ValueObjects\\Money.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:19:33.747Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Domain\\Entities\\Product.cs",
+              "RelativeDocumentMoniker": "Services\\CatalogService\\Domain\\Entities\\Product.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Domain\\Entities\\Product.cs",
+              "RelativeToolTip": "Services\\CatalogService\\Domain\\Entities\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T05:19:19.455Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "PaymentService.Infrastructure.csproj",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\PaymentService\\Infrastructure\\PaymentService.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "Services\\PaymentService\\Infrastructure\\PaymentService.Infrastructure.csproj",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\PaymentService\\Infrastructure\\PaymentService.Infrastructure.csproj",
+              "RelativeToolTip": "Services\\PaymentService\\Infrastructure\\PaymentService.Infrastructure.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-11T05:16:49.158Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "PaymentService.Domain.csproj",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\PaymentService\\Domain\\PaymentService.Domain.csproj",
+              "RelativeDocumentMoniker": "Services\\PaymentService\\Domain\\PaymentService.Domain.csproj",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\PaymentService\\Domain\\PaymentService.Domain.csproj",
+              "RelativeToolTip": "Services\\PaymentService\\Domain\\PaymentService.Domain.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-11T05:16:35.342Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "OrderService.Presentation.csproj",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\OrderService\\Presentation\\OrderService.Presentation.csproj",
+              "RelativeDocumentMoniker": "Services\\OrderService\\Presentation\\OrderService.Presentation.csproj",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\OrderService\\Presentation\\OrderService.Presentation.csproj",
+              "RelativeToolTip": "Services\\OrderService\\Presentation\\OrderService.Presentation.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-11T05:15:49.425Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "PaymentService.Presentation.csproj",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\PaymentService\\Presentation\\PaymentService.Presentation.csproj",
+              "RelativeDocumentMoniker": "Services\\PaymentService\\Presentation\\PaymentService.Presentation.csproj",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\PaymentService\\Presentation\\PaymentService.Presentation.csproj",
+              "RelativeToolTip": "Services\\PaymentService\\Presentation\\PaymentService.Presentation.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-11T05:12:04.084Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Gateways\\Auth Service\\Program.cs",
+              "RelativeDocumentMoniker": "Gateways\\Auth Service\\Program.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Gateways\\Auth Service\\Program.cs",
+              "RelativeToolTip": "Gateways\\Auth Service\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-09T05:48:27.631Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Gateways\\API Gateway\\Program.cs",
+              "RelativeDocumentMoniker": "Gateways\\API Gateway\\Program.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Gateways\\API Gateway\\Program.cs",
+              "RelativeToolTip": "Gateways\\API Gateway\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-09T05:47:21.544Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Presentation\\Program.cs",
+              "RelativeDocumentMoniker": "Services\\CatalogService\\Presentation\\Program.cs",
+              "ToolTip": "D:\\ZK Hybrid Architecture\\Large\\Services\\CatalogService\\Presentation\\Program.cs",
+              "RelativeToolTip": "Services\\CatalogService\\Presentation\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-09T05:45:44.309Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
