@@ -116,7 +116,12 @@ public static class Program
 
         var tierInfo = Tiers[tier];
 
-        var projectName = AnsiConsole.Ask<string>("Enter your [green]project name[/]:");
+        var projectName = AnsiConsole.Prompt(
+            new TextPrompt<string>("Enter your [green]project name[/]:")
+                .Validate(name =>
+                    string.IsNullOrWhiteSpace(name)
+                        ? ValidationResult.Error("[red]Project name cannot be empty[/]")
+                        : ValidationResult.Success()));
 
         var outputDir = AnsiConsole.Prompt(
             new TextPrompt<string?>("Output directory [grey](Enter for current)[/]:")
