@@ -88,6 +88,46 @@ Contains shared contracts and utilities:
 
 ## 📈 Scaling Process
 
+```mermaid
+graph TB
+  subgraph Small["Small - Monolith"]
+    S_P["Presentation (Controllers, Models)"]
+    S_A["Application (DTOs, Services, Interfaces)"]
+    S_D["Domain (Entities, Enums)"]
+    S_I["Infrastructure (Persistence, Repositories)"]
+    S_P --> S_A --> S_D
+    S_A --> S_I
+  end
+
+  subgraph Medium["Medium - Modular Monolith"]
+    M_P["Presentation (API Controllers, Views)"]
+    M_AC["Application (CatalogModule, OrdersModule)"]
+    M_D["Domain (Entities, ValueObjects)"]
+    M_I["Infrastructure (CatalogDB, OrdersDB)"]
+    M_P --> M_AC --> M_D
+    M_AC --> M_I
+  end
+
+  subgraph Large["Large - Microservices"]
+    L_GW["Gateways (API Gateway, Auth)"]
+    L_CS["CatalogService (Domain, App, Infra, Presentation)"]
+    L_OS["OrderService (Domain, App, Infra, Presentation)"]
+    L_PS["PaymentService (Domain, App, Infra, Presentation)"]
+    L_SK["SharedKernel (Events, Interfaces, Result)"]
+    L_GW --> L_CS & L_OS & L_PS
+    L_CS -.-> L_SK
+    L_OS -.-> L_SK
+    L_PS -.-> L_SK
+  end
+
+  Small -->|Grow| Medium
+  Medium -->|Scale| Large
+
+  style Small fill:#e3f2fd,stroke:#1565c0,color:#000
+  style Medium fill:#fff3e0,stroke:#e65100,color:#000
+  style Large fill:#e8f5e9,stroke:#2e7d32,color:#000
+```
+
 ### **Phase 1 – Small Application**
 - All services live in a **single repository**.
 - Communication between modules is **in-process**.
@@ -123,30 +163,30 @@ that grows with your project without forcing you to rewrite everything later."
 
 ### 1️⃣ Clone the Repo
 ```
-git clone https://github.com/zohaib-khan-786/ZK-Hybrid-Architecture-.git
-cd ZK-Hybrid-Architecture-
-2️⃣ Restore & Run
+git clone https://github.com/zohaib-khan-786/ZK-Hybrid-Architecture.git
+cd ZK-Hybrid-Architecture
+```
+
+### 2️⃣ Install a Template
+```
+dotnet new install ZMA.Small.Template
+dotnet new zma-small -n MyApp
+cd MyApp
+dotnet run
+```
+
+### 3️⃣ Restore & Build
+```
 dotnet restore
 dotnet build
-dotnet run --project Services/CatalogService/Presentation
-📜 License
+```
+
+---
+
+## 📜 License
 MIT License — You are free to use, modify, and distribute.
 
-🌟 Contributing
-Contributions are welcome!
+---
 
-Fork the repository.
-
-Create a feature branch.
-
-Submit a pull request.
-
-📊 Visual Representation
-
-+-----------------+     +------------------+     +------------------+
-|  CatalogService | --> |  OrderService    | --> | PaymentService    |
-+-----------------+     +------------------+     +------------------+
-         \                         |                        /
-          \                        |                       /
-           +----------------- SharedKernel ----------------+
-                        (Contracts, Events, Common)
+## 🌟 Contributing
+Contributions are welcome! Fork the repository, create a feature branch, and submit a pull request.
