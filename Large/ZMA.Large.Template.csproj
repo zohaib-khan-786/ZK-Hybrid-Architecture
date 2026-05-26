@@ -2,10 +2,13 @@
   <PropertyGroup>
     <PackageType>Template</PackageType>
     <PackageId>ZMA.Large.Template</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.2</Version>
     <Authors>Zohaib Khan</Authors>
     <TargetFramework>net8.0</TargetFramework>
     <Description>ZMA Hybrid Architecture Template</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/zohaib-khan-786/ZK-Hybrid-Architecture</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/zohaib-khan-786/ZK-Hybrid-Architecture</RepositoryUrl>
     <PackageOutputPath>nupkg</PackageOutputPath>
 
     <!-- Prevent compilation -->
