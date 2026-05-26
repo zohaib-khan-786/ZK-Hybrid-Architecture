@@ -15,38 +15,33 @@ Want clear boundaries between features.
 Prefer code organization that evolves with the product.
 
 ```mermaid
-flowchart LR
-  subgraph Small["🏗️ Small – Monolith"]
-    direction TB
-    S_P["Presentation<br/>Controllers, Models"]
-    S_A["Application<br/>DTOs, Services, Interfaces"]
-    S_D["Domain<br/>Entities, Enums"]
-    S_I["Infrastructure<br/>Persistence, Repositories"]
-    S_P --> S_A --> S_D
+graph TB
+  subgraph Small["Small - Monolith"]
+    S_P["Presentation (Controllers, Models)"]
+    S_A["Application (DTOs, Services, Interfaces)"]
+    S_D["Domain (Entities, Enums)"]
+    S_I["Infrastructure (Persistence, Repositories)"]
+    S_P --> S_A
+    S_A --> S_D
     S_A --> S_I
   end
 
-  Small -->|"Project grows →"| Medium
-
-  subgraph Medium["🏛️ Medium – Modular Monolith"]
-    direction TB
-    M_P["Presentation<br/>API Controllers, Views"]
-    M_AC["Application<br/>CatalogModule, OrdersModule"]
-    M_D["Domain<br/>Entities, ValueObjects"]
-    M_I["Infrastructure<br/>CatalogDB, OrdersDB"]
-    M_P --> M_AC --> M_D
+  subgraph Medium["Medium - Modular Monolith"]
+    M_P["Presentation (API Controllers, Views)"]
+    M_AC["Application (CatalogModule, OrdersModule)"]
+    M_D["Domain (Entities, ValueObjects)"]
+    M_I["Infrastructure (CatalogDB, OrdersDB)"]
+    M_P --> M_AC
+    M_AC --> M_D
     M_AC --> M_I
   end
 
-  Medium -->|"Scales further →"| Large
-
-  subgraph Large["🌐 Large – Microservices"]
-    direction TB
-    L_GW["Gateways<br/>API Gateway, Auth"]
-    L_CS["CatalogService<br/>Domain/App/Infra/Presentation"]
-    L_OS["OrderService<br/>Domain/App/Infra/Presentation"]
-    L_PS["PaymentService<br/>Domain/App/Infra/Presentation"]
-    L_SK["SharedKernel<br/>Events, Interfaces, Result"]
+  subgraph Large["Large - Microservices"]
+    L_GW["Gateways (API Gateway, Auth)"]
+    L_CS["CatalogService"]
+    L_OS["OrderService"]
+    L_PS["PaymentService"]
+    L_SK["SharedKernel (Events, Interfaces, Result)"]
     L_GW --> L_CS
     L_GW --> L_OS
     L_GW --> L_PS
@@ -54,6 +49,9 @@ flowchart LR
     L_OS -.-> L_SK
     L_PS -.-> L_SK
   end
+
+  Small -->|Grow| Medium
+  Medium -->|Scale| Large
 
   style Small fill:#e3f2fd,stroke:#1565c0,color:#000
   style Medium fill:#fff3e0,stroke:#e65100,color:#000
