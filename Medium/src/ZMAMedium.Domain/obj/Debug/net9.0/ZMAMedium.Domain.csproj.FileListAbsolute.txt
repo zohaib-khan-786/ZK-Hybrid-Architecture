@@ -1,0 +1,12 @@
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Domain\bin\Debug\net9.0\ZMAMedium.Domain.deps.json
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Domain\bin\Debug\net9.0\ZMAMedium.Domain.dll
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Domain\bin\Debug\net9.0\ZMAMedium.Domain.pdb
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Domain\obj\Debug\net9.0\ZMAMedium.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Domain\obj\Debug\net9.0\ZMAMedium.Domain.AssemblyInfoInputs.cache
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Domain\obj\Debug\net9.0\ZMAMedium.Domain.AssemblyInfo.cs
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Domain\obj\Debug\net9.0\ZMAMedium.Domain.csproj.CoreCompileInputs.cache
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Domain\obj\Debug\net9.0\ZMAMedium.Domain.sourcelink.json
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Domain\obj\Debug\net9.0\ZMAMedium.Domain.dll
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Domain\obj\Debug\net9.0\refint\ZMAMedium.Domain.dll
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Domain\obj\Debug\net9.0\ZMAMedium.Domain.pdb
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Domain\obj\Debug\net9.0\ref\ZMAMedium.Domain.dll

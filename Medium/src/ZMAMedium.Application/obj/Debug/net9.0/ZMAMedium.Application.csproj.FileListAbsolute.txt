@@ -1,0 +1,16 @@
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Application\bin\Debug\net9.0\ZMAMedium.Application.deps.json
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Application\bin\Debug\net9.0\ZMAMedium.Application.dll
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Application\bin\Debug\net9.0\ZMAMedium.Application.pdb
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Application\bin\Debug\net9.0\ZMAMedium.Domain.dll
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Application\bin\Debug\net9.0\ZMAMedium.Domain.pdb
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Application\obj\Debug\net9.0\ZMAMedium.Application.csproj.AssemblyReference.cache
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Application\obj\Debug\net9.0\ZMAMedium.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Application\obj\Debug\net9.0\ZMAMedium.Application.AssemblyInfoInputs.cache
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Application\obj\Debug\net9.0\ZMAMedium.Application.AssemblyInfo.cs
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Application\obj\Debug\net9.0\ZMAMedium.Application.csproj.CoreCompileInputs.cache
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Application\obj\Debug\net9.0\ZMAMedium.Application.sourcelink.json
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Application\obj\Debug\net9.0\ZMAMediu.FEDD7AE1.Up2Date
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Application\obj\Debug\net9.0\ZMAMedium.Application.dll
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Application\obj\Debug\net9.0\refint\ZMAMedium.Application.dll
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Application\obj\Debug\net9.0\ZMAMedium.Application.pdb
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Medium\src\ZMAMedium.Application\obj\Debug\net9.0\ref\ZMAMedium.Application.dll

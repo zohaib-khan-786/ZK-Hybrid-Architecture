@@ -1,0 +1,16 @@
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\PaymentService\Domain\bin\Debug\net9.0\PaymentService.Domain.deps.json
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\PaymentService\Domain\bin\Debug\net9.0\PaymentService.Domain.dll
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\PaymentService\Domain\bin\Debug\net9.0\PaymentService.Domain.pdb
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\PaymentService\Domain\bin\Debug\net9.0\SharedKernel.dll
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\PaymentService\Domain\bin\Debug\net9.0\SharedKernel.pdb
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\PaymentService\Domain\obj\Debug\net9.0\PaymentService.Domain.csproj.AssemblyReference.cache
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\PaymentService\Domain\obj\Debug\net9.0\PaymentService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\PaymentService\Domain\obj\Debug\net9.0\PaymentService.Domain.AssemblyInfoInputs.cache
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\PaymentService\Domain\obj\Debug\net9.0\PaymentService.Domain.AssemblyInfo.cs
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\PaymentService\Domain\obj\Debug\net9.0\PaymentService.Domain.csproj.CoreCompileInputs.cache
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\PaymentService\Domain\obj\Debug\net9.0\PaymentService.Domain.sourcelink.json
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\PaymentService\Domain\obj\Debug\net9.0\PaymentS.6786DBE7.Up2Date
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\PaymentService\Domain\obj\Debug\net9.0\PaymentService.Domain.dll
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\PaymentService\Domain\obj\Debug\net9.0\refint\PaymentService.Domain.dll
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\PaymentService\Domain\obj\Debug\net9.0\PaymentService.Domain.pdb
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\PaymentService\Domain\obj\Debug\net9.0\ref\PaymentService.Domain.dll

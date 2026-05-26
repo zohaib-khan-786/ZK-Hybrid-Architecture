@@ -1,0 +1,55 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "ZMASmall.Infrastructure/1.0.0": {
+        "dependencies": {
+          "ZMASmall.Application": "1.0.0"
+        },
+        "runtime": {
+          "ZMASmall.Infrastructure.dll": {}
+        }
+      },
+      "ZMASmall.Application/1.0.0": {
+        "dependencies": {
+          "ZMASmall.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ZMASmall.Application.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "ZMASmall.Domain/1.0.0": {
+        "runtime": {
+          "ZMASmall.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ZMASmall.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ZMASmall.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ZMASmall.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

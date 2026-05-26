@@ -1,0 +1,16 @@
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\OrderService\Domain\bin\Debug\net9.0\OrderService.Domain.deps.json
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\OrderService\Domain\bin\Debug\net9.0\OrderService.Domain.dll
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\OrderService\Domain\bin\Debug\net9.0\OrderService.Domain.pdb
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\OrderService\Domain\bin\Debug\net9.0\SharedKernel.dll
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\OrderService\Domain\bin\Debug\net9.0\SharedKernel.pdb
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\OrderService\Domain\obj\Debug\net9.0\OrderService.Domain.csproj.AssemblyReference.cache
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\OrderService\Domain\obj\Debug\net9.0\OrderService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\OrderService\Domain\obj\Debug\net9.0\OrderService.Domain.AssemblyInfoInputs.cache
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\OrderService\Domain\obj\Debug\net9.0\OrderService.Domain.AssemblyInfo.cs
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\OrderService\Domain\obj\Debug\net9.0\OrderService.Domain.csproj.CoreCompileInputs.cache
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\OrderService\Domain\obj\Debug\net9.0\OrderService.Domain.sourcelink.json
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\OrderService\Domain\obj\Debug\net9.0\OrderSer.691E6680.Up2Date
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\OrderService\Domain\obj\Debug\net9.0\OrderService.Domain.dll
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\OrderService\Domain\obj\Debug\net9.0\refint\OrderService.Domain.dll
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\OrderService\Domain\obj\Debug\net9.0\OrderService.Domain.pdb
+D:\03-Development\DotNET\ZK-Hybrid-Architecture\Large\src\Services\OrderService\Domain\obj\Debug\net9.0\ref\OrderService.Domain.dll
