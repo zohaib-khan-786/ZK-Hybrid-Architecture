@@ -11,10 +11,15 @@
     <!-- Prevent compilation -->
     <BuildOutputTargetFolder />
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Include all template content -->
-    <None Include="**\*" Pack="true" PackagePath="content" />
+    <!-- Package readme at root (not under content/) -->
+    <None Include="readme.md" Pack="true" PackagePath="\" />
+
+    <!-- Include all template content, excluding build artifacts -->
+    <None Include="**\*" Pack="true" PackagePath="content"
+          Exclude="**\bin\**;**\obj\**;**\.vs\**;nupkg\**;readme.md" />
   </ItemGroup>
 </Project>

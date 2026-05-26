@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>zma</ToolCommandName>
+    <PackageId>ZMA.Tool</PackageId>
+    <Version>1.0.0</Version>
+    <Title>ZMA Hybrid Architecture Toolkit</Title>
+    <Authors>Zohaib Khan</Authors>
+    <Description>Interactive CLI tool to scaffold ZMA (Zohaib Modular Architecture) projects. Choose from Small, Medium, or Large tiers and get a production-ready .NET solution.</Description>
+    <PackageTags>zma;hybrid-architecture;clean-architecture;microservices;dotnet;template</PackageTags>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Spectre.Console" Version="0.49.2-preview.0.90" />
+    <PackageReference Include="Spectre.Console.Cli" Version="0.49.2-preview.0.90" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="readme.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

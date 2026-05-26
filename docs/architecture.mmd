@@ -1,0 +1,35 @@
+graph TB
+  subgraph Small["Small - Monolith"]
+    S_P["Presentation (Controllers, Models)"]
+    S_A["Application (DTOs, Services, Interfaces)"]
+    S_D["Domain (Entities, Enums)"]
+    S_I["Infrastructure (Persistence, Repositories)"]
+    S_P --> S_A --> S_D
+    S_A --> S_I
+  end
+
+  subgraph Medium["Medium - Modular Monolith"]
+    M_P["Presentation (API Controllers, Views)"]
+    M_AC["Application (CatalogModule, OrdersModule)"]
+    M_D["Domain (Entities, ValueObjects)"]
+    M_I["Infrastructure (CatalogDB, OrdersDB)"]
+    M_P --> M_AC --> M_D
+    M_AC --> M_I
+  end
+
+  subgraph Large["Large - Microservices"]
+    L_GW["Gateways (API Gateway, Auth)"]
+    L_CS["CatalogService"]
+    L_OS["OrderService"]
+    L_PS["PaymentService"]
+    L_SK["SharedKernel (Events, Interfaces, Result)"]
+    L_GW --> L_CS
+    L_GW --> L_OS
+    L_GW --> L_PS
+    L_CS -.-> L_SK
+    L_OS -.-> L_SK
+    L_PS -.-> L_SK
+  end
+
+  Small -->|Grow| Medium
+  Medium -->|Scale| Large
