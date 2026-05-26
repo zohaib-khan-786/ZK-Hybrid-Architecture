@@ -1,5 +1,0 @@
-D:\DotNET\ZK-Hybrid-Architecture\ZMA.Small.Template\src\obj\Release\net9.0\ZMA.Small.Template.GeneratedMSBuildEditorConfig.editorconfig
-D:\DotNET\ZK-Hybrid-Architecture\ZMA.Small.Template\src\obj\Release\net9.0\ZMA.Small.Template.AssemblyInfoInputs.cache
-D:\DotNET\ZK-Hybrid-Architecture\ZMA.Small.Template\src\obj\Release\net9.0\ZMA.Small.Template.AssemblyInfo.cs
-D:\DotNET\ZK-Hybrid-Architecture\ZMA.Small.Template\src\obj\Release\net9.0\ZMA.Small.Template.csproj.CoreCompileInputs.cache
-D:\DotNET\ZK-Hybrid-Architecture\ZMA.Small.Template\src\obj\Release\net9.0\ZMA.Small.Template.sourcelink.json
