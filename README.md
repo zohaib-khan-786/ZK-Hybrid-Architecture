@@ -213,7 +213,7 @@ zma --version
 
 ### 📥 Purchase
 
-Send **$29** via Payoneer to `killerzobi893@gmail.com`, then email the same address with your name and I'll reply with your Pro license key.
+Send **$29** via Payoneer (`killerzobi893@gmail.com`) or Nayapay (`03481809798 — Zohaib Khan`), then email `killerzobi893@gmail.com` with your name and I'll reply with your Pro license key.
 
 Or run this after purchase:
 ```shell
