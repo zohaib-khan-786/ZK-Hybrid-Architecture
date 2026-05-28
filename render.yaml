@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: zma-license-server
+    env: node
+    rootDir: license-server
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: ADMIN_TOKEN
+        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: zma-license-db
+          property: connectionString
+
+databases:
+  - name: zma-license-db
+    databaseName: zma_license
+    plan: free

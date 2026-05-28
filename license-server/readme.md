@@ -27,18 +27,27 @@ graph TB
 | `POST` | `/api/license/validate` | None | Validate a key + machine-lock |
 | `POST` | `/api/license/revoke` | `Admin` | Revoke a license key |
 
-## Deploy to Railway
+## Deploy to Render (free)
+
+The easiest way is via the **Blueprint** (infrastructure-as-code):
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/zohaib-khan-786/ZK-Hybrid-Architecture)
+
+Render will prompt you to set `ADMIN_TOKEN` and automatically create a free PostgreSQL database.
+
+### Manual setup
 
 ```shell
-# 1. Push the full repo to GitHub
-# 2. Connect repo to Railway
-# 3. ⚠️ IMPORTANT: Set Root Directory to "license-server"
-#    Service → Settings → Root Directory → "license-server"
-#    (Otherwise Railway will scan the whole repo and fail)
-# 4. Set environment variable:
+# 1. Go to https://dashboard.render.com
+# 2. New + → Web Service → Connect your GitHub repo
+# 3. ⚠️ Set Root Directory → "license-server"
+# 4. Build Command: npm install && npm run build
+# 5. Start Command: npm start
+# 6. Add environment variable:
 #    ADMIN_TOKEN = your-secret-admin-token
-# 5. Add PostgreSQL plugin
-# 6. Deploy
+# 7. New + → PostgreSQL → choose Free plan
+# 8. Copy the Internal Connection String into DATABASE_URL
+# 9. Deploy
 ```
 
 ## Generate a License
