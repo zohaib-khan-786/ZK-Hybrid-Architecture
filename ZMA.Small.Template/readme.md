@@ -29,11 +29,16 @@ dotnet run --project MyApp.Presentation
 
 ## Architecture
 
-```
-Application/       DTOs, Interfaces, Services, Exceptions
-Domain/            Entities, Enums
-Infrastructure/    Persistence (EF Core), Repositories
-Presentation/      Controllers, Models
+```mermaid
+block-beta
+  columns 1
+  Presentation["Presentation<br/>Controllers · Models"]
+  Application["Application<br/>DTOs · Interfaces · Services · Exceptions"]
+  Infrastructure["Infrastructure<br/>EF Core · Repositories"]
+  Domain["Domain<br/>Entities · Enums"]
+  Presentation --> Application
+  Application --> Infrastructure
+  Application --> Domain
 ```
 
 ## Learn More

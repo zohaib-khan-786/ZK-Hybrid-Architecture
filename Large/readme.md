@@ -28,12 +28,25 @@ dotnet build
 
 ## Architecture
 
-```
-Services/CatalogService/     Domain, App, Infra, Presentation
-Services/OrderService/       Domain, App, Infra, Presentation
-Services/PaymentService/     Domain, App, Infra, Presentation
-SharedKernel/                Events, Interfaces, Common
-Gateways/                    API Gateway, Auth Service
+```mermaid
+block-beta
+  columns 1
+  block:Services
+    columns 3
+    CatalogService["CatalogService<br/>Domain · App · Infra · Presentation"]
+    OrderService["OrderService<br/>Domain · App · Infra · Presentation"]
+    PaymentService["PaymentService<br/>Domain · App · Infra · Presentation"]
+  end
+  block:Shared
+    SharedKernel["SharedKernel<br/>Events · Interfaces · Common"]
+  end
+  block:Gateways
+    columns 2
+    APIGateway["API Gateway"]
+    AuthService["Auth Service"]
+  end
+  Services --> Shared
+  Services --> Gateways
 ```
 
 ## Learn More

@@ -34,34 +34,36 @@ Most developers face these problems:
 
 ## 📂 Folder Structure
 
-Services/
-├── CatalogService/
-│ ├── Domain/
-│ ├── Application/
-│ ├── Infrastructure/
-│ └── Presentation/
-├── OrderService/
-│ ├── Domain/
-│ ├── Application/
-│ ├── Infrastructure/
-│ └── Presentation/
-└── PaymentService/
-├── Domain/
-├── Application/
-├── Infrastructure/
-└── Presentation/
-
-SharedKernel/
-├── Events/
-│ └── IntegrationEvent.cs
-├── Interfaces/
-│ └── IRepository.cs
-├── Common/
-│ └── Result.cs
-
-Gateways/
-├── API Gateway/
-└── Auth Service/
+```mermaid
+mindmap
+  root(("Project Root"))
+    Services
+      CatalogService
+        Domain
+        Application
+        Infrastructure
+        Presentation
+      OrderService
+        Domain
+        Application
+        Infrastructure
+        Presentation
+      PaymentService
+        Domain
+        Application
+        Infrastructure
+        Presentation
+    SharedKernel
+      Events
+        IntegrationEvent.cs
+      Interfaces
+        IRepository.cs
+      Common
+        Result.cs
+    Gateways
+      API Gateway
+      Auth Service
+```
 
 ---
 
@@ -161,30 +163,61 @@ that grows with your project without forcing you to rewrite everything later."
 
 ## 🛠 Getting Started
 
-### 1️⃣ Clone the Repo
+### 1️⃣ Install the CLI Tool
 ```
-git clone https://github.com/zohaib-khan-786/ZK-Hybrid-Architecture.git
-cd ZK-Hybrid-Architecture
+dotnet tool install -g ZMA.Tool
 ```
 
-### 2️⃣ Install a Template
+### 2️⃣ Scaffold a Project
 ```
-dotnet new install ZMA.Small.Template
-dotnet new zma-small -n MyApp
+zma
+# or: zma --tier Small --name MyApp --output ./projects --non-interactive
+```
+
+### 3️⃣ Run It
+```
 cd MyApp
-dotnet run
-```
-
-### 3️⃣ Restore & Build
-```
-dotnet restore
-dotnet build
+dotnet run --project MyApp.Presentation
 ```
 
 ---
 
+## 🧰 Tools
+
+| Tool | Install | Description |
+|------|---------|-------------|
+| **ZMA.Tool** | `dotnet tool install -g ZMA.Tool` | Interactive scaffolder — scaffolds Small, Medium, or Large tiers |
+| **ZMA.Migrator** | `dotnet tool install -g ZMA.Migrator` | Migrate projects between tiers: `zma-migrate --from Medium --to Large` |
+| **ZMA.Licensing** | `dotnet add package ZMA.Licensing` | License validation client library (used internally by the tools) |
+
+### ZMA.Tool — Register a License
+```
+zma --register --key ZMA-XXXX-XXXX-XXXX
+zma --version
+```
+
+---
+
+## 💳 Licensing
+
+### Free Tier
+- **Max 2 entities** per scaffolded/migrated project
+- Files are watermarked with a comment header
+- No expiration
+
+### Pro Tier
+- **Up to 99 entities**
+- No watermarks
+- Machine-locked to your workstation
+- Purchase at [zma.dev](https://zma.dev)
+
+The validation is **server-side** — license keys are generated and stored privately. The open-source client contains no secrets.
+
+---
+
 ## 📜 License
-MIT License — You are free to use, modify, and distribute.
+MIT License — You are free to use, modify, and distribute.  
+*Note: The license server (`license-server/`) and validation logic are MIT as well; security comes from server-side enforcement, not hidden code.*
 
 ---
 

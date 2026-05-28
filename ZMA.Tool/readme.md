@@ -18,15 +18,25 @@ dotnet tool install -g ZMA.Tool
 zma
 ```
 
-Prompts you to select a tier (Small, Medium, Large), enter a project name, and choose an output directory.
-
 ### Non-interactive mode (CI pipelines)
 
 ```shell
 zma --tier Small --name MyApp --output ./projects --non-interactive
 ```
 
-Arguments:
+### Check version / license status
+
+```shell
+zma --version
+```
+
+### Register a license key
+
+```shell
+zma --register --key ZMA-XXXX-XXXX-XXXX
+```
+
+## Arguments
 
 | Flag | Alias | Description |
 |------|-------|-------------|
@@ -34,12 +44,59 @@ Arguments:
 | `--name` | `-n` | Project name |
 | `--output` | `-o` | Output directory (defaults to current directory) |
 | `--non-interactive` | `--auto` | Skip all prompts; requires `--tier` and `--name` |
+| `--register` | `-r` | Register a license key |
+| `--key` | `-k` | License key (used with `--register`) |
+| `--version` | `-v` | Show version and license status |
+
+## Licensing
+
+| Tier | Max Entities | Watermark | Price |
+|------|-------------|-----------|-------|
+| Free | 2 | Yes | $0 |
+| Pro  | 99 | No | Purchase at zma.dev |
+
+The free edition watermarks generated files. Purchase a Pro key at [zma.dev](https://zma.dev) and activate with:
+
+```shell
+zma --register --key YOUR-KEY-HERE
+```
 
 ## What it scaffolds
 
-- **Small**: Monolith with Domain, Application, Infrastructure, Presentation layers
-- **Medium**: Modular Monolith with Catalog + Orders modules, separate DbContexts
-- **Large**: Microservices with CatalogService, OrderService, PaymentService + API Gateway + SharedKernel
+```mermaid
+graph LR
+  subgraph Small["Small — Monolith"]
+    direction LR
+    S_P["Presentation"]
+    S_A["Application"]
+    S_D["Domain"]
+    S_I["Infrastructure"]
+    S_P --> S_A --> S_D
+    S_A --> S_I
+  end
+  subgraph Medium["Medium — Modular Monolith"]
+    direction LR
+    M_P["Presentation"]
+    M_AC["Application<br/>CatalogModule · OrdersModule"]
+    M_I["Infrastructure<br/>CatalogDB · OrdersDB"]
+    M_D["Domain"]
+    M_P --> M_AC --> M_D
+    M_AC --> M_I
+  end
+  subgraph Large["Large — Microservices"]
+    direction TB
+    L_GW["API Gateway"]
+    L_CS["CatalogService"]
+    L_OS["OrderService"]
+    L_PS["PaymentService"]
+    L_SK["SharedKernel"]
+    L_GW --> L_CS & L_OS & L_PS
+    L_CS -.-> L_SK
+    L_OS -.-> L_SK
+    L_PS -.-> L_SK
+  end
+  Small -->|grow| Medium -->|scale| Large
+```
 
 ## Learn More
 

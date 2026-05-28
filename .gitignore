@@ -29,6 +29,12 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
+## Node.js
+node_modules/
+
 ## temp files
 *.tmp
 *.log
+
+## test / scratch files
+real-test/

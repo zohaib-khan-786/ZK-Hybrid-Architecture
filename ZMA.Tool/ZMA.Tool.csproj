@@ -9,10 +9,10 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>zma</ToolCommandName>
     <PackageId>ZMA.Tool</PackageId>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Title>ZMA Hybrid Architecture Toolkit</Title>
     <Authors>Zohaib Khan</Authors>
-    <Description>Interactive CLI tool to scaffold ZMA (Zohaib Modular Architecture) projects. Choose from Small, Medium, or Large tiers and get a production-ready .NET solution.</Description>
+    <Description>Interactive CLI tool to scaffold ZMA (Zohaib Modular Architecture) projects. Choose from Small, Medium, or Large tiers and get a production-ready .NET solution. Includes license management with 'zma --register --key'.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/zohaib-khan-786/ZK-Hybrid-Architecture</PackageProjectUrl>
     <RepositoryUrl>https://github.com/zohaib-khan-786/ZK-Hybrid-Architecture</RepositoryUrl>
@@ -23,6 +23,10 @@
   <ItemGroup>
     <PackageReference Include="Spectre.Console" Version="0.49.2-preview.0.90" />
     <PackageReference Include="Spectre.Console.Cli" Version="0.49.2-preview.0.90" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ZMA.Licensing\ZMA.Licensing.csproj" />
   </ItemGroup>
 
   <ItemGroup>

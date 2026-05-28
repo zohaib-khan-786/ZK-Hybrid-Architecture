@@ -1,10 +1,13 @@
 using System.Diagnostics;
 using Spectre.Console;
+using ZMA.Licensing;
 
 namespace ZMA.Tool;
 
 public static class Program
 {
+    private static readonly LicenseValidator License = new();
+
     private static readonly Dictionary<string, TierInfo> Tiers = new(StringComparer.OrdinalIgnoreCase)
     {
         ["Small"] = new TierInfo(
@@ -28,12 +31,40 @@ public static class Program
     {
         var parsed = ParseArgs(args);
 
+        if (parsed.Version)
+        {
+            ShowVersion();
+            return 0;
+        }
+
+        if (parsed.Register)
+        {
+            if (string.IsNullOrWhiteSpace(parsed.LicenseKey))
+            {
+                Console.Error.WriteLine("--key <LICENSE_KEY> is required for registration.");
+                return 1;
+            }
+            return await HandleRegister(parsed.LicenseKey);
+        }
+
         if (parsed.NonInteractive)
         {
             return await RunNonInteractive(parsed);
         }
 
         return await RunInteractive();
+    }
+
+    private static void ShowVersion()
+    {
+        var asm = typeof(Program).Assembly;
+        var ver = asm.GetName().Version?.ToString() ?? "1.0.0";
+        Console.WriteLine($"ZMA Toolkit v{ver}");
+        Console.WriteLine($"License: {(License.IsRegistered ? License.Cached.Tier : "free")}");
+        if (License.IsRegistered)
+            Console.WriteLine($"Licensed to: {License.Cached.Licensee} (expires {License.Cached.ExpiresAt:yyyy-MM-dd})");
+        else
+            Console.WriteLine("Run 'zma --register --key <key>' to activate a paid license.");
     }
 
     private static async Task<int> RunNonInteractive(Args parsed)
@@ -88,6 +119,9 @@ public static class Program
             return 1;
         }
 
+        if (!License.IsRegistered)
+            InjectWatermark(projectDir);
+
         Console.WriteLine();
         Console.WriteLine("Done! Your project is ready at:");
         Console.WriteLine(solutionPath);
@@ -106,6 +140,8 @@ public static class Program
         AnsiConsole.Write(new FigletText("ZMA Toolkit").Color(new Color(0, 136, 204)));
         AnsiConsole.MarkupLine("[grey]Zohaib Modular Architecture — [bold]Build once, scale forever[/][/]");
         AnsiConsole.WriteLine();
+
+        ShowLicenseStatus();
 
         var tier = AnsiConsole.Prompt(
             new SelectionPrompt<string>()
@@ -181,6 +217,9 @@ public static class Program
                 }
             });
 
+        if (!License.IsRegistered)
+            InjectWatermark(projectDir);
+
         AnsiConsole.WriteLine();
         AnsiConsole.MarkupLine("[bold green]Done![/] Your project is ready at:");
         AnsiConsole.MarkupLine($"[cyan]{solutionPath}[/]");
@@ -192,6 +231,20 @@ public static class Program
         AnsiConsole.MarkupLine($"[grey]dotnet run --project {GetRunProject(tier, projectName)}[/]");
 
         return 0;
+    }
+
+    private static async Task ShowLicenseStatus()
+    {
+        if (License.IsRegistered)
+        {
+            var c = License.Cached;
+            AnsiConsole.MarkupLine($"[green]✓ Licensed to {c.Licensee}[/] [grey]({c.Tier}, {c.MaxEntities} entities, expires {c.ExpiresAt:yyyy-MM-dd})[/]");
+        }
+        else
+        {
+            AnsiConsole.MarkupLine("[yellow]⚠ Free mode — max 2 entities. Run 'zma --register --key <key>' to unlock.[/]");
+        }
+        AnsiConsole.WriteLine();
     }
 
     private static Args ParseArgs(string[] args)
@@ -217,9 +270,35 @@ public static class Program
                 case "--auto":
                     result.NonInteractive = true;
                     break;
+                case "--version":
+                case "-v":
+                    result.Version = true;
+                    break;
+                case "--register":
+                case "-r":
+                    result.Register = true;
+                    break;
+                case "--key":
+                case "-k":
+                    if (i + 1 < args.Length) result.LicenseKey = args[++i];
+                    break;
             }
         }
         return result;
+    }
+
+    private static async Task<int> HandleRegister(string key)
+    {
+        AnsiConsole.MarkupLine("[yellow]Registering license...[/]");
+        var result = await License.RegisterAsync(key);
+        if (result.Valid)
+        {
+            AnsiConsole.MarkupLine($"[green]✓ License registered![/] Licensed to [bold]{result.Licensee}[/]");
+            AnsiConsole.MarkupLine($"[grey]Tier: {result.Tier} | Max entities: {result.MaxEntities} | Expires: {result.ExpiresAt:yyyy-MM-dd}[/]");
+            return 0;
+        }
+        AnsiConsole.MarkupLine($"[red]Registration failed: {result.Error}[/]");
+        return 1;
     }
 
     private static string GetRunProject(string tier, string projectName) => tier.ToLowerInvariant() switch
@@ -294,6 +373,23 @@ public static class Program
         return process.ExitCode;
     }
 
+    private static void InjectWatermark(string projectDir)
+    {
+        var watermark = "// ⚠ Generated by ZMA Free Edition — get a license at https://zma.dev";
+        var files = Directory.EnumerateFiles(projectDir, "*.cs", SearchOption.AllDirectories)
+            .Where(f => !f.Contains($"obj{Path.DirectorySeparatorChar}") && !f.Contains($"bin{Path.DirectorySeparatorChar}"));
+        var count = 0;
+        foreach (var file in files)
+        {
+            var content = File.ReadAllText(file);
+            if (content.StartsWith(watermark)) continue;
+            File.WriteAllText(file, watermark + Environment.NewLine + content);
+            count++;
+        }
+        if (count > 0)
+            AnsiConsole.MarkupLine($"[yellow]⚠ Watermarked {count} files (free edition)[/]");
+    }
+
     private record TierInfo(string ShortName, string PackageId, string Description, string Color);
 
     private class Args
@@ -302,5 +398,8 @@ public static class Program
         public string? ProjectName { get; set; }
         public string? OutputDir { get; set; }
         public bool NonInteractive { get; set; }
+        public bool Version { get; set; }
+        public bool Register { get; set; }
+        public string? LicenseKey { get; set; }
     }
 }

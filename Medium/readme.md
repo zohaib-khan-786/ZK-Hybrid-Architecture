@@ -29,12 +29,25 @@ dotnet run --project MyApp.Presentation
 
 ## Architecture
 
-```
-Application/CatalogModule    Interfaces, Services, DTOs for Catalog
-Application/OrdersModule     Interfaces, Services, DTOs for Orders
-Domain/                      Entities, ValueObjects, Enums
-Infrastructure/Persistence   CatalogDbContext, OrdersDbContext
-Presentation/Controllers     Grouped by module
+```mermaid
+block-beta
+  columns 1
+  block:Presentation
+    Controllers["Presentation/Controllers<br/>Grouped by module"]
+  end
+  block:Application
+    columns 2
+    Catalog["CatalogModule<br/>Interfaces · Services · DTOs"]
+    Orders["OrdersModule<br/>Interfaces · Services · DTOs"]
+  end
+  block:Infrastructure
+    DbContexts["Infrastructure/Persistence<br/>CatalogDbContext · OrdersDbContext"]
+  end
+  block:Domain
+    Domain["Domain<br/>Entities · ValueObjects · Enums"]
+  end
+  Presentation --> Application --> Domain
+  Application --> Infrastructure
 ```
 
 ## Learn More
