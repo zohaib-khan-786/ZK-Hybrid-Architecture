@@ -1,14 +1,20 @@
 import express from "express";
 import cors from "cors";
+import crypto from "crypto";
 import { v4 as uuid } from "uuid";
 import { initDb, insertLicense, findLicense, updateMachineFingerprint, revokeLicense, closeDb, LicenseRow } from "./db";
 
 const app = express();
-app.use(cors());
-app.use(express.json());
 
 const PORT = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 const ADMIN_TOKEN = process.env.ADMIN_TOKEN || "change-me-in-production";
+const LS_WEBHOOK_SECRET = process.env.LEMON_SQUEEZY_WEBHOOK_SECRET;
+
+// Raw body capture for webhook signature verification
+app.use(express.json({
+  verify: (req, _res, buf) => { (req as any).rawBody = buf; },
+}));
+app.use(cors());
 
 // ─── In-memory fallback store ───
 const memLicenses = new Map<string, LicenseRow>();
@@ -130,6 +136,40 @@ app.post("/api/license/revoke", async (req, res) => {
   await revokeLicense(key);
   license.revoked = true;
   return res.json({ revoked: true, key });
+});
+
+// ─── POST /api/license/webhook/lemonsqueezy ───
+app.post("/api/license/webhook/lemonsqueezy", async (req, res) => {
+  // Verify signature
+  if (LS_WEBHOOK_SECRET) {
+    const sig = req.headers["x-signature"] as string;
+    if (!sig) return res.status(401).json({ error: "Missing signature" });
+    const expected = crypto.createHmac("sha256", LS_WEBHOOK_SECRET).update((req as any).rawBody).digest("hex");
+    if (sig !== expected) return res.status(401).json({ error: "Invalid signature" });
+  }
+
+  const event = req.body.meta?.event_name;
+  if (event !== "order_created") return res.json({ received: true });
+
+  const attrs = req.body.data?.attributes;
+  const licensee = attrs?.customer_name || attrs?.user_name || "Customer";
+  const email = attrs?.user_email;
+  if (!email) return res.status(400).json({ error: "email required" });
+
+  const key = `ZMA-${uuid().split("-").slice(0, 4).join("-").toUpperCase()}`;
+  const license: LicenseRow = {
+    key,
+    licensee,
+    email,
+    tier: "pro",
+    max_entities: 99,
+    issued_at: new Date(),
+    expires_at: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
+    revoked: false,
+  };
+  await saveLicense(license);
+  console.log(`License ${key} generated for ${email}`);
+  return res.json({ key, licensee, email, tier: "pro", maxEntities: 99 });
 });
 
 // ─── Health check ───

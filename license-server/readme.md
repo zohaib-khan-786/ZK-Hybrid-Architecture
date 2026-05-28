@@ -65,6 +65,39 @@ curl -X POST https://your-app.railway.app/api/license/generate \
 |----------|----------|-------------|
 | `ADMIN_TOKEN` | Yes | Secret token for admin endpoints |
 | `DATABASE_URL` | No | PostgreSQL connection string (falls back to in-memory) |
+| `LEMON_SQUEEZY_WEBHOOK_SECRET` | No | Webhook signing secret from Lemon Squeezy |
+
+## Lemon Squeezy Integration
+
+Automatically generate license keys when customers purchase.
+
+### Setup
+
+1. Create an account at [lemonsqueezy.com](https://lemonsqueezy.com)
+2. **Products → New Product** → create "ZMA Pro License" ($29 or your price)
+3. Go to **Settings → Webhooks** → **Add Webhook**
+   - **URL:** `https://your-app.onrender.com/api/license/webhook/lemonsqueezy`
+   - **Events:** select **order_created**
+   - Copy the **Signing Secret**
+4. Add it as an environment variable on Render:
+   ```
+   LEMON_SQUEEZY_WEBHOOK_SECRET = your-signing-secret
+   ```
+
+### How it works
+
+```mermaid
+sequenceDiagram
+  Customer->>Lemon Squeezy: Purchases ZMA Pro
+  Lemon Squeezy->>License Server: POST /api/license/webhook/lemonsqueezy
+  License Server->>License Server: Generates key, stores in DB
+  License Server-->>Lemon Squeezy: Returns license key
+  Lemon Squeezy-->>Customer: Emails the license key
+```
+
+### Testing
+
+Use Lemon Squeezy's test mode to simulate a purchase without real payments.
 
 ## Learn More
 
