@@ -9,7 +9,7 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>zma-migrate</ToolCommandName>
     <PackageId>ZMA.Migrator</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Title>ZMA Hybrid Architecture Migrator</Title>
     <Authors>Zohaib Khan</Authors>
     <Description>Migrate ZMA projects between architectural tiers: Small (monolith) ↔ Medium (modular monolith) ↔ Large (microservices).</Description>
