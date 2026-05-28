@@ -209,7 +209,16 @@ zma --version
 - **Up to 99 entities**
 - No watermarks
 - Machine-locked to your workstation
-- Purchase at [zma.dev](https://zma.dev)
+- **$29 — lifetime license**
+
+### 📥 Purchase
+
+Send **$29** via Payoneer to `killerzobi893@gmail.com`, then email the same address with your name and I'll reply with your Pro license key.
+
+Or run this after purchase:
+```shell
+zma --register --key ZMA-XXXX-XXXX-XXXX
+```
 
 The validation is **server-side** — license keys are generated and stored privately. The open-source client contains no secrets.
 
