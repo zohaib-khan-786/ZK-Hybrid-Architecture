@@ -12,7 +12,7 @@ public class LicenseValidator
     private static readonly TimeSpan CacheTtl = TimeSpan.FromHours(24);
 
     public string ServerUrl { get; set; } = Environment.GetEnvironmentVariable("ZMA_LICENSE_SERVER")
-        ?? "https://zma-license.up.railway.app";
+        ?? "https://zk-hybrid-architecture-production.up.railway.app";
 
     public LicenseInfo Cached { get; private set; } = new();
 
