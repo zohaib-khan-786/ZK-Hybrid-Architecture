@@ -31,6 +31,7 @@ bld/
 
 ## Node.js
 node_modules/
+dist/
 
 ## temp files
 *.tmp

@@ -30,12 +30,15 @@ graph TB
 ## Deploy to Railway
 
 ```shell
-# 1. Push this directory to a GitHub repo
+# 1. Push the full repo to GitHub
 # 2. Connect repo to Railway
-# 3. Set environment variable:
+# 3. ⚠️ IMPORTANT: Set Root Directory to "license-server"
+#    Service → Settings → Root Directory → "license-server"
+#    (Otherwise Railway will scan the whole repo and fail)
+# 4. Set environment variable:
 #    ADMIN_TOKEN = your-secret-admin-token
-# 4. Add PostgreSQL plugin
-# 5. Deploy
+# 5. Add PostgreSQL plugin
+# 6. Deploy
 ```
 
 ## Generate a License
