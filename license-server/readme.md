@@ -67,37 +67,24 @@ curl -X POST https://your-app.railway.app/api/license/generate \
 | `DATABASE_URL` | No | PostgreSQL connection string (falls back to in-memory) |
 | `LEMON_SQUEEZY_WEBHOOK_SECRET` | No | Webhook signing secret from Lemon Squeezy |
 
-## Lemon Squeezy Integration
+## Selling Licenses (Manual)
 
-Automatically generate license keys when customers purchase.
+For now, handle sales manually via Payoneer:
 
-### Setup
+1. Customer sends payment to your Payoneer email
+2. You run this command to generate their key:
 
-1. Create an account at [lemonsqueezy.com](https://lemonsqueezy.com)
-2. **Products → New Product** → create "ZMA Pro License" ($29 or your price)
-3. Go to **Settings → Webhooks** → **Add Webhook**
-   - **URL:** `https://your-app.onrender.com/api/license/webhook/lemonsqueezy`
-   - **Events:** select **order_created**
-   - Copy the **Signing Secret**
-4. Add it as an environment variable on Render:
-   ```
-   LEMON_SQUEEZY_WEBHOOK_SECRET = your-signing-secret
-   ```
-
-### How it works
-
-```mermaid
-sequenceDiagram
-  Customer->>Lemon Squeezy: Purchases ZMA Pro
-  Lemon Squeezy->>License Server: POST /api/license/webhook/lemonsqueezy
-  License Server->>License Server: Generates key, stores in DB
-  License Server-->>Lemon Squeezy: Returns license key
-  Lemon Squeezy-->>Customer: Emails the license key
+```shell
+curl -X POST https://zk-hybrid-architecture.onrender.com/api/license/generate \
+  -H "Authorization: Bearer YOUR_ADMIN_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d "{\"licensee\":\"Customer Name\",\"email\":\"customer@email.com\"}"
 ```
 
-### Testing
+3. Reply with the returned key (e.g. `ZMA-XXXX-XXXX-XXXX`)
+4. They activate it: `zma --register --key ZMA-XXXX-XXXX-XXXX`
 
-Use Lemon Squeezy's test mode to simulate a purchase without real payments.
+The webhook endpoint (`/api/license/webhook/lemonsqueezy`) is ready for future automated delivery when you want to add a payment processor.
 
 ## Learn More
 
