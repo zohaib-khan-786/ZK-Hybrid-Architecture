@@ -151,7 +151,7 @@ foreach (var file in Directory.EnumerateFiles(srcDir, "*.cs", SearchOption.AllDi
      || relPath.StartsWith($"bin{Path.DirectorySeparatorChar}", StringComparison.OrdinalIgnoreCase))
         continue;
 
-    var (destRelPath, module) = ClassifyFile(relPath, projectName, sourceTier, targetTier, entities);
+    var (destRelPath, module) = ClassifyFile(relPath, projectName, sourceTier, targetTier, entities, isMvc);
 
     if (destRelPath is null)
     {
@@ -198,6 +198,36 @@ if (dryRun)
 }
 
 Console.WriteLine($"Inventory: {fileCount} source files would be migrated, {skipped} skipped.");
+
+// Copy MVC view files (.cshtml) for MVC projects, transforming namespaces
+if (isMvc && !dryRun)
+{
+    foreach (var vfile in Directory.EnumerateFiles(srcDir, "*.cshtml", SearchOption.AllDirectories))
+    {
+        var vrelPath = Path.GetRelativePath(srcDir, vfile);
+        if (vrelPath.Contains($"{Path.DirectorySeparatorChar}obj{Path.DirectorySeparatorChar}", StringComparison.OrdinalIgnoreCase)
+         || vrelPath.Contains($"{Path.DirectorySeparatorChar}bin{Path.DirectorySeparatorChar}", StringComparison.OrdinalIgnoreCase))
+            continue;
+        var vdestPath = Path.Combine(outSrc, vrelPath);
+        Directory.CreateDirectory(Path.GetDirectoryName(vdestPath)!);
+        var vcontent = File.ReadAllText(vfile);
+        // Rewrite flat Application.DTOs to all per-module DTOs namespaces
+        var flatUsing = $"@using {projectName}.Application.DTOs";
+        if (vcontent.Contains(flatUsing))
+        {
+            var moduleUsings = new List<string>();
+            foreach (var entity in entities)
+            {
+                var modName = EntityToModule(entity);
+                if (modName is not null)
+                    moduleUsings.Add($"@using {projectName}.Application.{modName}.DTOs");
+            }
+            vcontent = vcontent.Replace(flatUsing, string.Join("\r\n", moduleUsings));
+        }
+        File.WriteAllText(vdestPath, vcontent);
+        fileCount++;
+    }
+}
 
 if (skipReasons.Count > 0 && !dryRun)
 {
@@ -348,7 +378,7 @@ static bool DetectMvcProject(string srcDir, string projectName)
 // ========== FILE CLASSIFICATION ==========
 
 static (string? destRelPath, string module) ClassifyFile(
-    string relPath, string projectName, string sourceTier, string targetTier, List<string> entities)
+    string relPath, string projectName, string sourceTier, string targetTier, List<string> entities, bool isMvc = false)
 {
     var parts = relPath.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
     if (parts.Length < 2) return (null, "skip-shallow-path");
@@ -530,19 +560,32 @@ static (string? destRelPath, string module) ClassifyFile(
             if (targetTier == "large")
             {
                 var ctrlEntityName = FindEntityFromController(fileName, entities)
-                    ?? FindEntityFromFileName(fileName, entities);
+                    ?? FindEntityFromFileName(fileName, entities)
+                    ?? FindEntityContainedIn(fileName, entities)
+                    ?? FindEntityByWordMatch(fileName, entities);
                 var svc = ctrlEntityName is not null ? EntityToService(ctrlEntityName) : null;
-                if (svc is null) return (null, "skip-ctrl-no-entity");
+                if (svc is null)
+                {
+                    if (isMvc) return (relPath, "copy");
+                    return (null, "skip-ctrl-no-entity");
+                }
                 var ctrlName = EntityToLargeControllerName(ctrlEntityName, fileName);
                 return ($"Services/{svc}/{svc}.Presentation/Controllers/{ctrlName}.cs", $"large-ctrl-{svc}");
             }
 
             var ctrlEntity = FindEntityFromController(fileName, entities)
-                ?? FindEntityFromFileName(fileName, entities);
+                ?? FindEntityFromFileName(fileName, entities)
+                ?? FindEntityContainedIn(fileName, entities)
+                ?? FindEntityByWordMatch(fileName, entities);
 
             var ctrlModule = EntityToModule(ctrlEntity);
             if (ctrlModule is null)
+            {
+                // For MVC projects, preserve non-entity controllers (Home, Auth, etc.) as-is
+                if (isMvc)
+                    return (relPath, "copy");
                 return (null, "skip-ctrl-no-entity");
+            }
 
             return (P($"Presentation/API/Controllers/{fileName}.cs"), $"ctrl-{ctrlModule}");
         }
