@@ -122,6 +122,9 @@ public static class Program
         if (!License.IsRegistered)
             InjectWatermark(projectDir);
 
+        if (parsed.ProjectType == "mvc")
+            ApplyMvcProjectType(projectDir, parsed.ProjectName);
+
         Console.WriteLine();
         Console.WriteLine("Done! Your project is ready at:");
         Console.WriteLine(solutionPath);
@@ -228,6 +231,9 @@ public static class Program
         if (!License.IsRegistered)
             InjectWatermark(projectDir);
 
+        if (projectType == "mvc")
+            ApplyMvcProjectType(projectDir, projectName);
+
         AnsiConsole.WriteLine();
         AnsiConsole.MarkupLine("[bold green]Done![/] Your project is ready at:");
         AnsiConsole.MarkupLine($"[cyan]{solutionPath}[/]");
@@ -293,6 +299,8 @@ public static class Program
                 case "--project-type":
                 case "-p":
                     if (i + 1 < args.Length) result.ProjectType = args[++i].ToLowerInvariant();
+                    if (result.ProjectType is not "webapi" and not "mvc")
+                        result.ProjectType = "webapi";
                     break;
             }
         }
@@ -383,6 +391,113 @@ public static class Program
         await process.WaitForExitAsync();
 
         return process.ExitCode;
+    }
+
+    private static void ApplyMvcProjectType(string projectDir, string projectName)
+    {
+        var presDir = Directory.GetDirectories(projectDir, "*.Presentation").FirstOrDefault()
+            ?? Directory.GetDirectories(projectDir).FirstOrDefault(d => !d.EndsWith("Domain") && !d.EndsWith("Application") && !d.EndsWith("Infrastructure"));
+
+        if (presDir is null) return;
+
+        // --- Program.cs: replace AddControllers with AddControllersWithViews + routing ---
+        var progPath = Directory.GetFiles(presDir, "Program.cs").FirstOrDefault();
+        if (progPath is not null)
+        {
+            var prog = File.ReadAllText(progPath);
+            prog = prog.Replace("builder.Services.AddControllers();", "builder.Services.AddControllersWithViews();");
+            prog = prog.Replace("app.MapControllers();", "");
+            if (!prog.Contains("UseStaticFiles"))
+            {
+                prog = prog.Replace("app.UseHttpsRedirection();",
+                    "app.UseStaticFiles();\r\napp.UseRouting();\r\n\r\napp.UseHttpsRedirection();");
+                prog = prog.Replace("app.Run();",
+                    "app.MapControllerRoute(\r\n    name: \"default\",\r\n    pattern: \"{controller=Home}/{action=Index}/{id?}\");\r\n\r\napp.Run();");
+            }
+            File.WriteAllText(progPath, prog);
+        }
+
+        // --- Views directory ---
+        var viewsDir = Path.Combine(presDir, "Views");
+        Directory.CreateDirectory(Path.Combine(viewsDir, "Home"));
+        Directory.CreateDirectory(Path.Combine(viewsDir, "Shared"));
+
+        // --- _ViewImports.cshtml ---
+        File.WriteAllText(Path.Combine(viewsDir, "_ViewImports.cshtml"),
+            $@"@using {projectName}.Presentation.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+");
+
+        // --- _ViewStart.cshtml ---
+        File.WriteAllText(Path.Combine(viewsDir, "_ViewStart.cshtml"),
+            @"@{
+    Layout = ""_Layout"";
+}
+");
+
+        // --- _Layout.cshtml ---
+        File.WriteAllText(Path.Combine(viewsDir, "Shared", "_Layout.cshtml"),
+            $@"<!DOCTYPE html>
+<html lang=""en"">
+<head>
+    <meta charset=""utf-8"" />
+    <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"" />
+    <title>@ViewData[""Title""] — {projectName}</title>
+    <link rel=""stylesheet"" href=""https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"" />
+</head>
+<body>
+    <header>
+        <nav class=""navbar navbar-expand-lg navbar-dark bg-dark"">
+            <div class=""container"">
+                <a class=""navbar-brand"" href=""/"">{projectName}</a>
+            </div>
+        </nav>
+    </header>
+    <main class=""container mt-4"">
+        @RenderBody()
+    </main>
+</body>
+</html>
+");
+
+        // --- Home/Index.cshtml ---
+        File.WriteAllText(Path.Combine(viewsDir, "Home", "Index.cshtml"),
+            $@"@{{ ViewData[""Title""] = ""Home""; }}
+<h1>Welcome to {projectName}</h1>
+<p>ZMA MVC application scaffolded successfully.</p>
+");
+
+        // --- HomeController.cs ---
+        var controllersDir = Directory.GetDirectories(presDir, "Controllers").FirstOrDefault()
+            ?? Path.Combine(presDir, "Controllers");
+        Directory.CreateDirectory(controllersDir);
+        var homeCtrlPath = Path.Combine(controllersDir, "HomeController.cs");
+        if (!File.Exists(homeCtrlPath))
+        {
+            File.WriteAllText(homeCtrlPath,
+                $@"using Microsoft.AspNetCore.Mvc;
+
+namespace {projectName}.Presentation.Controllers;
+
+public class HomeController : Controller
+{{
+    public IActionResult Index()
+    {{
+        return View();
+    }}
+}}
+");
+        }
+
+        // --- wwwroot ---
+        var wwwroot = Path.Combine(presDir, "wwwroot");
+        Directory.CreateDirectory(wwwroot);
+
+        // --- Models (if missing) ---
+        var modelsDir = Path.Combine(presDir, "Models");
+        Directory.CreateDirectory(modelsDir);
+
+        AnsiConsole.MarkupLine("[green]✓ MVC files created (Views, HomeController, Layout)[/]");
     }
 
     private static void InjectWatermark(string projectDir)
