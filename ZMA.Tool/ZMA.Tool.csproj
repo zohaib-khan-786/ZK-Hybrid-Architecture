@@ -9,7 +9,7 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>zma</ToolCommandName>
     <PackageId>ZMA.Tool</PackageId>
-    <Version>1.0.5</Version>
+    <Version>1.0.6</Version>
     <Title>ZMA Hybrid Architecture Toolkit</Title>
     <Authors>Zohaib Khan</Authors>
     <Description>Interactive CLI tool to scaffold ZMA (Zohaib Modular Architecture) projects. Choose from Small, Medium, or Large tiers and get a production-ready .NET solution. Includes license management with 'zma --register --key'.</Description>

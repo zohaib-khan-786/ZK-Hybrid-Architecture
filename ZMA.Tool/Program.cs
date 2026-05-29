@@ -152,6 +152,13 @@ public static class Program
 
         var tierInfo = Tiers[tier];
 
+        var projectType = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+                .Title("Which [bold]project type[/] do you want?")
+                .PageSize(5)
+                .AddChoices("webapi", "mvc")
+                .UseConverter(t => t == "mvc" ? "MVC (with Views)" : "Web API"));
+
         var projectName = AnsiConsole.Prompt(
             new TextPrompt<string>("Enter your [green]project name[/]:")
                 .Validate(name =>
@@ -176,6 +183,7 @@ public static class Program
         summary.AddColumn("Value");
         summary.AddRow("Tier", $"[{tierInfo.Color}]{tier}[/]");
         summary.AddRow("Template", tierInfo.ShortName);
+        summary.AddRow("Project Type", projectType == "mvc" ? "MVC (with Views)" : "Web API");
         summary.AddRow("Project Name", projectName);
         summary.AddRow("Output", projectDir);
         AnsiConsole.Write(summary);
@@ -281,6 +289,10 @@ public static class Program
                 case "--key":
                 case "-k":
                     if (i + 1 < args.Length) result.LicenseKey = args[++i];
+                    break;
+                case "--project-type":
+                case "-p":
+                    if (i + 1 < args.Length) result.ProjectType = args[++i].ToLowerInvariant();
                     break;
             }
         }
@@ -401,5 +413,6 @@ public static class Program
         public bool Version { get; set; }
         public bool Register { get; set; }
         public string? LicenseKey { get; set; }
+        public string ProjectType { get; set; } = "webapi"; // webapi, mvc
     }
 }

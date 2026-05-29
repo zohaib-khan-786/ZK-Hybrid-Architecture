@@ -90,6 +90,10 @@ outputDir = Path.GetFullPath(outputDir);
 var entities = ScanEntities(srcDir, projectName);
 Console.WriteLine($"Entities: {(entities.Count > 0 ? string.Join(", ", entities) : "none found")}");
 
+// Detect project type from source controllers
+var isMvc = DetectMvcProject(srcDir, projectName);
+if (isMvc) Console.WriteLine("Project type: MVC (with Views)");
+
 // License check
 var licenseValidator = new LicenseValidator();
 if (!licenseValidator.CanMigrateEntityCount(entities.Count))
@@ -182,7 +186,7 @@ foreach (var file in Directory.EnumerateFiles(srcDir, "*.cs", SearchOption.AllDi
     Directory.CreateDirectory(Path.GetDirectoryName(destPath)!);
 
     var content = File.ReadAllText(file);
-    content = TransformContent(content, relPath, projectName, sourceTier, targetTier, module, entities);
+    content = TransformContent(content, relPath, projectName, sourceTier, targetTier, module, entities, isMvc);
     File.WriteAllText(destPath, content);
     fileCount++;
 }
@@ -222,7 +226,7 @@ if (dryRun)
     return 0;
 }
 
-WriteTierFiles(outSrc, projectName, targetTier, entities);
+WriteTierFiles(outSrc, projectName, targetTier, entities, isMvc);
 WriteProjectFiles(outSrc, projectName, targetTier);
 WriteSolutionFile(outSrc, projectName);
 WriteAppSettings(srcDir, outSrc, projectName);
@@ -317,6 +321,28 @@ static List<string> ScanEntities(string srcDir, string projectName)
             entities.Add(match.Groups[1].Value);
     }
     return entities;
+}
+
+static bool DetectMvcProject(string srcDir, string projectName)
+{
+    var presDir = Path.Combine(srcDir, $"{projectName}.Presentation");
+    if (!Directory.Exists(presDir)) return false;
+
+    var ctrlDirs = new[] { "Controllers", "API/Controllers" }
+        .Select(d => Path.Combine(presDir, d))
+        .Where(Directory.Exists);
+
+    foreach (var ctrlDir in ctrlDirs)
+    {
+        foreach (var file in Directory.GetFiles(ctrlDir, "*.cs"))
+        {
+            var content = File.ReadAllText(file);
+            // Controller (MVC) inherits from Controller, not ControllerBase
+            if (Regex.IsMatch(content, @":\s*Controller\b") && !Regex.IsMatch(content, @":\s*ControllerBase\b"))
+                return true;
+        }
+    }
+    return false;
 }
 
 // ========== FILE CLASSIFICATION ==========
@@ -510,7 +536,7 @@ static (string? destRelPath, string module) ClassifyFile(
             if (ctrlModule is null)
                 return (null, "skip-ctrl-no-entity");
 
-            return (P($"Presentation/API/Controllers/{fileName}"), $"ctrl-{ctrlModule}");
+            return (P($"Presentation/API/Controllers/{fileName}.cs"), $"ctrl-{ctrlModule}");
         }
 
         if (category == "API" && parts.Length > 2 && parts[2] == "Controllers")
@@ -630,7 +656,7 @@ static string ModuleToService(string module)
 // ========== CONTENT TRANSFORMATION ==========
 
 static string TransformContent(string content, string relPath, string projectName,
-    string sourceTier, string targetTier, string module, List<string> entities)
+    string sourceTier, string targetTier, string module, List<string> entities, bool isMvc = false)
 {
     var result = content;
 
@@ -639,12 +665,12 @@ static string TransformContent(string content, string relPath, string projectNam
     if (module == "flatten-repo")
     {
         result = Regex.Replace(result,
-            $@"using\s+{Regex.Escape(projectName)}\.Application\.(\w+Module)\.(DTOs|Interfaces|Services)\b",
-            $"using {projectName}.Application.$2");
+            $@"using\s+{Regex.Escape(projectName)}\.Application\.(\w+Module)\.(DTOs|Interfaces|Services)\b(\.[^;]+)?;",
+            $"using {projectName}.Application.$2;");
 
         result = Regex.Replace(result,
-            $@"using\s+{Regex.Escape(projectName)}\.Application\.(\w+Module)\.Exceptions\b",
-            $"using {projectName}.Application.Exceptions");
+            $@"using\s+{Regex.Escape(projectName)}\.Application\.(\w+Module)\.Exceptions\b.*;",
+            $"using {projectName}.Application.Exceptions;");
 
         // Replace any *DbContext with AppDbContext (merge)
         result = Regex.Replace(result, @"\b\w+DbContext\b", "AppDbContext");
@@ -659,17 +685,18 @@ static string TransformContent(string content, string relPath, string projectNam
             $"namespace {projectName}.Presentation.API.Controllers",
             $"namespace {projectName}.Presentation.Controllers");
 
+        // Strip entity suffix after DTOs/Interfaces/Services (e.g., .Courier)
         result = Regex.Replace(result,
-            $@"using\s+{Regex.Escape(projectName)}\.Application\.(\w+Module)\.(DTOs|Interfaces|Services)\b",
-            $"using {projectName}.Application.$2");
+            $@"using\s+{Regex.Escape(projectName)}\.Application\.(\w+Module)\.(DTOs|Interfaces|Services)\b(\.[^;]+)?;",
+            $"using {projectName}.Application.$2;");
 
         result = Regex.Replace(result,
-            $@"using\s+{Regex.Escape(projectName)}\.Application\.(\w+Module)\.Exceptions\b",
-            $"using {projectName}.Application.Exceptions");
+            $@"using\s+{Regex.Escape(projectName)}\.Application\.(\w+Module)\.Exceptions\b.*;",
+            $"using {projectName}.Application.Exceptions;");
 
         result = Regex.Replace(result,
-            $@"using\s+{Regex.Escape(projectName)}\.Application\.Shared\.Exceptions\b",
-            $"using {projectName}.Application.Exceptions");
+            $@"using\s+{Regex.Escape(projectName)}\.Application\.Shared\.Exceptions\b.*;",
+            $"using {projectName}.Application.Exceptions;");
 
         return result;
     }
@@ -680,12 +707,12 @@ static string TransformContent(string content, string relPath, string projectNam
         var modToFlatten = module["flatten-".Length..];
 
         result = Regex.Replace(result,
-            $@"namespace\s+{Regex.Escape(projectName)}\.Application\.{Regex.Escape(modToFlatten)}\.(\w+)\b",
+            $@"namespace\s+{Regex.Escape(projectName)}\.Application\.{Regex.Escape(modToFlatten)}\.(\w+)\b.*",
             $"namespace {projectName}.Application.$1");
 
         result = Regex.Replace(result,
-            $@"using\s+{Regex.Escape(projectName)}\.Application\.{Regex.Escape(modToFlatten)}\.(\w+)\b",
-            $"using {projectName}.Application.$1");
+            $@"using\s+{Regex.Escape(projectName)}\.Application\.{Regex.Escape(modToFlatten)}\.(\w+)\b(\.[^;]+)?;",
+            $"using {projectName}.Application.$1;");
 
         // Also flatten Shared references in non-Shared files (e.g., ProductModule file using Shared.Exceptions)
         result = Regex.Replace(result,
@@ -828,7 +855,7 @@ static string TransformContent(string content, string relPath, string projectNam
 
     // Program.cs - rewrite entirely
     if (module == "program")
-        return GenerateProgramCs(projectName, targetTier, entities);
+        return GenerateProgramCs(projectName, targetTier, entities, isMvc);
 
     // No transformation needed for Medium source staying as-is or copy
     if (module == "copy" || sourceTier == targetTier)
@@ -851,14 +878,15 @@ static string TransformContent(string content, string relPath, string projectNam
 
     if (modName is not null)
     {
-        result = result.Replace(
-            $"using {projectName}.Application.DTOs;",
+        // Use regex to also strip any entity suffix (e.g., .Courier after DTOs)
+        result = Regex.Replace(result,
+            $@"using\s+{Regex.Escape(projectName)}\.Application\.DTOs(\..*)?;",
             $"using {projectName}.Application.{modName}.DTOs;");
-        result = result.Replace(
-            $"using {projectName}.Application.Interfaces;",
+        result = Regex.Replace(result,
+            $@"using\s+{Regex.Escape(projectName)}\.Application\.Interfaces(\..*)?;",
             $"using {projectName}.Application.{modName}.Interfaces;");
-        result = result.Replace(
-            $"using {projectName}.Application.Services;",
+        result = Regex.Replace(result,
+            $@"using\s+{Regex.Escape(projectName)}\.Application\.Services(\..*)?;",
             $"using {projectName}.Application.{modName}.Services;");
     }
 
@@ -874,14 +902,15 @@ static string TransformContent(string content, string relPath, string projectNam
 
     if (modName is not null)
     {
+        // Strip any entity suffix after DTOs/Interfaces/Services (e.g., .Courier)
         result = Regex.Replace(result,
-            $@"namespace\s+{Regex.Escape(projectName)}\.Application\.(DTOs|Interfaces|Services)\b",
+            $@"namespace\s+{Regex.Escape(projectName)}\.Application\.(DTOs|Interfaces|Services)\b.*",
             $"namespace {projectName}.Application.{modName}.$1");
         result = Regex.Replace(result,
-            $@"namespace\s+{Regex.Escape(projectName)}\.Application\.Exceptions\b",
+            $@"namespace\s+{Regex.Escape(projectName)}\.Application\.Exceptions\b.*",
             $"namespace {projectName}.Application.Shared.Exceptions");
         result = Regex.Replace(result,
-            $@"namespace\s+{Regex.Escape(projectName)}\.Application\.Validators\b",
+            $@"namespace\s+{Regex.Escape(projectName)}\.Application\.Validators\b.*",
             $"namespace {projectName}.Application.Shared.Validators");
     }
 
@@ -898,16 +927,45 @@ static string TransformContent(string content, string relPath, string projectNam
         result = Regex.Replace(result,
             $@"namespace\s+{Regex.Escape(projectName)}\.Presentation\.Controllers\b",
             $"namespace {projectName}.Presentation.API.Controllers");
+
+        // Add missing cross-module usings (e.g., ShipmentController using ICourierService)
+        var ctrlEntityName = module["ctrl-".Length..]; // e.g., "ShipmentModule"
+        foreach (var entity in entities)
+        {
+            var otherModule = EntityToModule(entity);
+            if (otherModule is null || string.Equals(otherModule, ctrlEntityName, StringComparison.OrdinalIgnoreCase))
+                continue;
+
+            // Check if this file references the other module's service interface
+            var svcInterface = $"I{EntityToService(entity)?.Replace("Service", "")}";
+            if (!result.Contains(svcInterface, StringComparison.Ordinal))
+                continue;
+
+            var usingStmt = $"using {projectName}.Application.{otherModule}.Interfaces;";
+            if (!result.Contains(usingStmt))
+            {
+                // Add after the first using block
+                var firstUsing = result.IndexOf("using ", StringComparison.Ordinal);
+                if (firstUsing >= 0)
+                {
+                    var afterFirst = result.IndexOf(';', firstUsing);
+                    if (afterFirst >= 0)
+                        result = result.Insert(afterFirst + 1, $"\r\n{usingStmt}");
+                }
+            }
+        }
     }
 
     return result;
 }
 
-static string GenerateProgramCs(string projectName, string targetTier, List<string> entities)
+static string GenerateProgramCs(string projectName, string targetTier, List<string> entities, bool isMvc = false)
 {
     var sb = new System.Text.StringBuilder();
 
     sb.AppendLine("using Microsoft.EntityFrameworkCore;");
+
+    var controllersLine = isMvc ? "builder.Services.AddControllersWithViews();" : "builder.Services.AddControllers();";
 
     if (targetTier == "small")
     {
@@ -918,7 +976,7 @@ static string GenerateProgramCs(string projectName, string targetTier, List<stri
         sb.AppendLine();
         sb.AppendLine("var builder = WebApplication.CreateBuilder(args);");
         sb.AppendLine();
-        sb.AppendLine("builder.Services.AddControllers();");
+        sb.AppendLine(controllersLine);
         sb.AppendLine("builder.Services.AddOpenApi();");
         sb.AppendLine();
         sb.AppendLine($"builder.Services.AddDbContext<AppDbContext>(options =>");
@@ -943,7 +1001,7 @@ static string GenerateProgramCs(string projectName, string targetTier, List<stri
         sb.AppendLine();
         sb.AppendLine("var builder = WebApplication.CreateBuilder(args);");
         sb.AppendLine();
-        sb.AppendLine("builder.Services.AddControllers();");
+        sb.AppendLine(controllersLine);
         sb.AppendLine("builder.Services.AddOpenApi();");
         sb.AppendLine();
         foreach (var entity in entities)
@@ -968,8 +1026,25 @@ static string GenerateProgramCs(string projectName, string targetTier, List<stri
     sb.AppendLine("    app.MapOpenApi();");
     sb.AppendLine("}");
     sb.AppendLine();
-    sb.AppendLine("app.UseHttpsRedirection();");
-    sb.AppendLine("app.MapControllers();");
+
+    if (isMvc)
+    {
+        sb.AppendLine("app.UseStaticFiles();");
+        sb.AppendLine();
+        sb.AppendLine("app.UseRouting();");
+        sb.AppendLine();
+        sb.AppendLine("app.UseHttpsRedirection();");
+        sb.AppendLine();
+        sb.AppendLine("app.MapControllerRoute(");
+        sb.AppendLine("    name: \"default\",");
+        sb.AppendLine("    pattern: \"{controller=Home}/{action=Index}/{id?}\");");
+    }
+    else
+    {
+        sb.AppendLine("app.UseHttpsRedirection();");
+        sb.AppendLine("app.MapControllers();");
+    }
+
     sb.AppendLine("app.Run();");
     return sb.ToString();
 }
@@ -1078,7 +1153,7 @@ static void BuildTargetStructure(string outSrc, string projectName, string targe
         Directory.CreateDirectory(Path.Combine(outSrc, dir));
 }
 
-static void WriteTierFiles(string outSrc, string projectName, string targetTier, List<string> entities)
+static void WriteTierFiles(string outSrc, string projectName, string targetTier, List<string> entities, bool isMvc = false)
 {
     if (targetTier == "small")
     {
@@ -1093,12 +1168,19 @@ static void WriteTierFiles(string outSrc, string projectName, string targetTier,
         return;
     }
 
-    // Medium: write split DbContexts + ValueObject + ViewModel + View for each entity
+    // Medium: write split DbContexts + ValueObject
     foreach (var entity in entities)
         WriteEntityDbContext(outSrc, projectName, entity);
     WriteValueObject(outSrc, projectName);
-    WriteProductViewModel(outSrc, projectName);
-    WriteIndexView(outSrc, projectName);
+
+    // MVC-only files — Views, ViewImports, ViewStart
+    if (isMvc)
+    {
+        WriteProductViewModel(outSrc, projectName);
+        WriteIndexView(outSrc, projectName);
+        WriteViewImports(outSrc, projectName);
+        WriteViewStart(outSrc, projectName);
+    }
 }
 
 static void WriteLargeTierFiles(string outSrc, string projectName, List<string> entities)
@@ -1746,6 +1828,33 @@ static void WriteIndexView(string outSrc, string projectName)
 <p>Medium-tier MVC application.</p>
 """;
     File.WriteAllText(path, indexHtml);
+}
+
+static void WriteViewImports(string outSrc, string projectName)
+{
+    var viewsDir = Path.Combine(outSrc, $"{projectName}.Presentation", "Views");
+    var path = Path.Combine(viewsDir, "_ViewImports.cshtml");
+    if (File.Exists(path)) return;
+
+    var imports = $$"""
+@using {{projectName}}.Presentation.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+""";
+    File.WriteAllText(path, imports);
+}
+
+static void WriteViewStart(string outSrc, string projectName)
+{
+    var viewsDir = Path.Combine(outSrc, $"{projectName}.Presentation", "Views");
+    var path = Path.Combine(viewsDir, "_ViewStart.cshtml");
+    if (File.Exists(path)) return;
+
+    var start = """
+@{
+    Layout = "_Layout";
+}
+""";
+    File.WriteAllText(path, start);
 }
 
 static void WriteProjectFiles(string outSrc, string projectName, string targetTier)

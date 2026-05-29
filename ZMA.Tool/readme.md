@@ -44,6 +44,7 @@ zma --register --key ZMA-XXXX-XXXX-XXXX
 | `--name` | `-n` | Project name |
 | `--output` | `-o` | Output directory (defaults to current directory) |
 | `--non-interactive` | `--auto` | Skip all prompts; requires `--tier` and `--name` |
+| `--project-type` | `-p` | Project type: `webapi` or `mvc` (default: webapi) |
 | `--register` | `-r` | Register a license key |
 | `--key` | `-k` | License key (used with `--register`) |
 | `--version` | `-v` | Show version and license status |
