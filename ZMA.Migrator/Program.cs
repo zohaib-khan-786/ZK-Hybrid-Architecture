@@ -124,14 +124,14 @@ var skipMessageMap = new Dictionary<string, string>(StringComparer.OrdinalIgnore
     ["skip-shallow-path"] = "File path is too shallow (< 2 segments) - root-level file",
     ["skip-domain-unknown"] = "Not in Domain/Entities|Enums|ValueObjects|Exceptions|Interfaces|Events",
     ["skip-medium-unknown-module"] = "Medium source with unrecognized module directory",
-    ["skip-no-entity-match"] = "Does not match any known entity name - add entity to Domain/Entities/ or rename file",
+    ["skip-no-entity-match"] = "ZMA naming mismatch — file name does not match any entity. Use: {Entity}Dto.cs, Create{Entity}Dto.cs, Update{Entity}StatusDto.cs, I{Entity}Service.cs, {Entity}Service.cs, I{Entity}Repository.cs, or add the entity to Domain/Entities/",
     ["skip-app-unknown"] = "Not in Application/DTOs|Interfaces|Services|Exceptions|Validators",
     ["split-dbcontext"] = "AppDbContext split into per-module DbContexts (Small→Medium)",
     ["skip-dbcontext-direction"] = "AppDbContext only split in Small→Medium migration",
     ["skip-split-contexts"] = "Already-split DbContexts removed in Medium→Small (will regenerate single AppDbContext)",
     ["skip-already-split"] = "Already-split DbContext not handled for this migration direction",
     ["skip-infra-unknown"] = "Not in Infrastructure/Persistence|Repositories|ExternalServices",
-    ["skip-ctrl-no-entity"] = "Controller name does not match any entity - add entity or rename file to <Entity>Controller.cs",
+    ["skip-ctrl-no-entity"] = "ZMA naming mismatch — controller must match an entity: rename to {Entity}Controller.cs (e.g., CourierController) or add the entity to Domain/Entities/",
     ["skip-already-api-controllers"] = "Already in API/Controllers/ (Medium target, no change needed)",
     ["skip-pres-resource"] = "Non-code file in Presentation (Properties/Models/Views is not migrated)",
     ["skip-pres-unknown"] = "Not in Presentation/Controllers|API|Properties|Models|Views",
@@ -432,7 +432,9 @@ static (string? destRelPath, string module) ClassifyFile(
             {
                 var entityName = FindEntity(fileName, entities)
                     ?? FindEntityFromFileName(fileName, entities)
-                    ?? FindEntityFromFileName(Path.GetFileNameWithoutExtension(fileName.Replace("Dto", "")), entities);
+                    ?? FindEntityFromFileName(Path.GetFileNameWithoutExtension(fileName.Replace("Dto", "")), entities)
+                    ?? FindEntityContainedIn(fileName, entities)
+                    ?? FindEntityByWordMatch(fileName, entities);
                 var svc = entityName is not null ? EntityToService(entityName) : null;
                 if (svc is null) return (null, "skip-no-entity-match");
                 return ($"Services/{svc}/{svc}.Application/{category}/{fileName}.cs", $"large-{svc}");
@@ -440,7 +442,9 @@ static (string? destRelPath, string module) ClassifyFile(
 
             var entity = FindEntity(fileName, entities)
                 ?? FindEntityFromFileName(fileName, entities)
-                ?? FindEntityFromFileName(Path.GetFileNameWithoutExtension(fileName.Replace("Dto", "")), entities);
+                ?? FindEntityFromFileName(Path.GetFileNameWithoutExtension(fileName.Replace("Dto", "")), entities)
+                ?? FindEntityContainedIn(fileName, entities)
+                ?? FindEntityByWordMatch(fileName, entities);
 
             var module = EntityToModule(entity);
             if (module is null)
@@ -480,7 +484,9 @@ static (string? destRelPath, string module) ClassifyFile(
             if (targetTier == "large")
             {
                 var repoEntityName = FindEntityFromRepo(fileName, entities)
-                    ?? FindEntityFromFileName(fileName, entities);
+                    ?? FindEntityFromFileName(fileName, entities)
+                    ?? FindEntityContainedIn(fileName, entities)
+                    ?? FindEntityByWordMatch(fileName, entities);
                 var svc = repoEntityName is not null ? EntityToService(repoEntityName)
                     : entities.Count > 0 ? EntityToService(entities[0])
                     : null;
@@ -489,7 +495,9 @@ static (string? destRelPath, string module) ClassifyFile(
             }
 
             var repoEntity = FindEntityFromRepo(fileName, entities)
-                ?? FindEntityFromFileName(fileName, entities);
+                ?? FindEntityFromFileName(fileName, entities)
+                ?? FindEntityContainedIn(fileName, entities)
+                ?? FindEntityByWordMatch(fileName, entities);
 
             var repoModule = EntityToModule(repoEntity);
             if (repoModule is null)
@@ -645,6 +653,49 @@ static string? FindEntityFromFileName(string fileName, List<string> entities)
             return entity;
     }
     return null;
+}
+
+static string? FindEntityContainedIn(string fileName, List<string> entities)
+{
+    foreach (var entity in entities)
+    {
+        if (fileName.Contains(entity, StringComparison.OrdinalIgnoreCase))
+            return entity;
+    }
+    return null;
+}
+
+static string? FindEntityByWordMatch(string fileName, List<string> entities)
+{
+    foreach (var entity in entities)
+    {
+        var words = SplitPascalCase(entity);
+        foreach (var word in words)
+        {
+            if (word.Length > 2 && fileName.Contains(word, StringComparison.OrdinalIgnoreCase)
+                && entity.Length > word.Length)
+                return entity;
+        }
+    }
+    return null;
+}
+
+static List<string> SplitPascalCase(string input)
+{
+    var words = new List<string>();
+    var current = new System.Text.StringBuilder();
+    foreach (var c in input)
+    {
+        if (char.IsUpper(c) && current.Length > 0)
+        {
+            words.Add(current.ToString());
+            current.Clear();
+        }
+        current.Append(c);
+    }
+    if (current.Length > 0)
+        words.Add(current.ToString());
+    return words;
 }
 
 static string ModuleToService(string module)
