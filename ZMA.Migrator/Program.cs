@@ -186,7 +186,7 @@ foreach (var file in Directory.EnumerateFiles(srcDir, "*.cs", SearchOption.AllDi
     Directory.CreateDirectory(Path.GetDirectoryName(destPath)!);
 
     var content = File.ReadAllText(file);
-    content = TransformContent(content, relPath, projectName, sourceTier, targetTier, module, entities, isMvc);
+    content = TransformContent(content, relPath, projectName, sourceTier, targetTier, module, entities, isMvc, srcDir);
     File.WriteAllText(destPath, content);
     fileCount++;
 }
@@ -707,7 +707,7 @@ static string ModuleToService(string module)
 // ========== CONTENT TRANSFORMATION ==========
 
 static string TransformContent(string content, string relPath, string projectName,
-    string sourceTier, string targetTier, string module, List<string> entities, bool isMvc = false)
+    string sourceTier, string targetTier, string module, List<string> entities, bool isMvc = false, string? srcDir = null)
 {
     var result = content;
 
@@ -906,7 +906,23 @@ static string TransformContent(string content, string relPath, string projectNam
 
     // Program.cs - rewrite entirely
     if (module == "program")
-        return GenerateProgramCs(projectName, targetTier, entities, isMvc);
+    {
+        // Build set of entities that have their own service file in the source project
+        var entitiesWithSvc = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        var servicesDir = Path.Combine(srcDir, $"{projectName}.Application", "Services");
+        if (Directory.Exists(servicesDir))
+        {
+            foreach (var svcFile in Directory.EnumerateFiles(servicesDir, "*.cs", SearchOption.TopDirectoryOnly))
+            {
+                var svcName = Path.GetFileNameWithoutExtension(svcFile);
+                var svcEntity = FindEntity(svcName, entities)
+                    ?? FindEntityFromFileName(svcName, entities);
+                if (svcEntity is not null)
+                    entitiesWithSvc.Add(svcEntity);
+            }
+        }
+        return GenerateProgramCs(projectName, targetTier, entities, isMvc, entitiesWithSvc);
+    }
 
     // No transformation needed for Medium source staying as-is or copy
     if (module == "copy" || sourceTier == targetTier)
@@ -978,30 +994,71 @@ static string TransformContent(string content, string relPath, string projectNam
         result = Regex.Replace(result,
             $@"namespace\s+{Regex.Escape(projectName)}\.Presentation\.Controllers\b",
             $"namespace {projectName}.Presentation.API.Controllers");
+    }
 
-        // Add missing cross-module usings (e.g., ShipmentController using ICourierService)
-        var ctrlEntityName = module["ctrl-".Length..]; // e.g., "ShipmentModule"
+    // General cross-module using detection for all non-controller files
+    var currentModName = module switch
+    {
+        _ when module?.StartsWith("app-") == true => module[4..],
+        _ when module?.StartsWith("repo-") == true => module[5..],
+        _ when module?.StartsWith("ctrl-") == true => module[5..],
+        _ => null
+    };
+
+    if (currentModName is not null && module is not "copy" and not "program" and not "split-dbcontext" and not "ignore")
+    {
         foreach (var entity in entities)
         {
             var otherModule = EntityToModule(entity);
-            if (otherModule is null || string.Equals(otherModule, ctrlEntityName, StringComparison.OrdinalIgnoreCase))
+            if (otherModule is null || string.Equals(otherModule, currentModName, StringComparison.OrdinalIgnoreCase))
                 continue;
 
-            // Check if this file references the other module's service interface
-            var svcInterface = $"I{EntityToService(entity)?.Replace("Service", "")}";
-            if (!result.Contains(svcInterface, StringComparison.Ordinal))
-                continue;
-
-            var usingStmt = $"using {projectName}.Application.{otherModule}.Interfaces;";
-            if (!result.Contains(usingStmt))
+            // Check for interface references: I{Entity}Repository, I{Entity}Service
+            var iRep = $"I{entity}Repository";
+            var iSvc = $"I{EntityToService(entity)}";
+            if ((result.Contains(iRep, StringComparison.Ordinal) || result.Contains(iSvc, StringComparison.Ordinal))
+                && !result.Contains($"using {projectName}.Application.{otherModule}.Interfaces;", StringComparison.Ordinal))
             {
-                // Add after the first using block
                 var firstUsing = result.IndexOf("using ", StringComparison.Ordinal);
                 if (firstUsing >= 0)
                 {
                     var afterFirst = result.IndexOf(';', firstUsing);
                     if (afterFirst >= 0)
-                        result = result.Insert(afterFirst + 1, $"\r\n{usingStmt}");
+                        result = result.Insert(afterFirst + 1, $"\r\nusing {projectName}.Application.{otherModule}.Interfaces;");
+                }
+            }
+
+            // Check for DTO references: entity name or its words appearing with "Dto" suffix
+            var entityWords = SplitPascalCase(entity);
+            var needsDtoNs = false;
+            foreach (var line in result.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                var trimmed = line.Trim();
+                if (trimmed.StartsWith("using ") || trimmed.StartsWith("namespace "))
+                    continue;
+                // Check entity name directly followed by Dto or suffixed
+                if (trimmed.Contains($"{entity}Dto", StringComparison.Ordinal)
+                    || trimmed.Contains($"Create{entity}Dto", StringComparison.Ordinal)
+                    || trimmed.Contains($"Update{entity}Dto", StringComparison.Ordinal))
+                { needsDtoNs = true; break; }
+                // Check individual words from compound entity name (e.g., "Assignment" from "CourierAssignment")
+                foreach (var w in entityWords)
+                {
+                    if (w.Length > 2 && trimmed.IndexOf(w, StringComparison.Ordinal) >= 0
+                        && (trimmed.Length > trimmed.IndexOf(w) + w.Length + 3)
+                        && trimmed.Substring(trimmed.IndexOf(w) + w.Length, 3).Equals("Dto", StringComparison.Ordinal))
+                    { needsDtoNs = true; break; }
+                }
+                if (needsDtoNs) break;
+            }
+            if (needsDtoNs && !result.Contains($"using {projectName}.Application.{otherModule}.DTOs;", StringComparison.Ordinal))
+            {
+                var firstUsing = result.IndexOf("using ", StringComparison.Ordinal);
+                if (firstUsing >= 0)
+                {
+                    var afterFirst = result.IndexOf(';', firstUsing);
+                    if (afterFirst >= 0)
+                        result = result.Insert(afterFirst + 1, $"\r\nusing {projectName}.Application.{otherModule}.DTOs;");
                 }
             }
         }
@@ -1010,7 +1067,7 @@ static string TransformContent(string content, string relPath, string projectNam
     return result;
 }
 
-static string GenerateProgramCs(string projectName, string targetTier, List<string> entities, bool isMvc = false)
+static string GenerateProgramCs(string projectName, string targetTier, List<string> entities, bool isMvc = false, HashSet<string>? entitiesWithServices = null)
 {
     var sb = new System.Text.StringBuilder();
 
@@ -1045,7 +1102,8 @@ static string GenerateProgramCs(string projectName, string targetTier, List<stri
         {
             var module = EntityToModule(entity);
             sb.AppendLine($"using {projectName}.Application.{module}.Interfaces;");
-            sb.AppendLine($"using {projectName}.Application.{module}.Services;");
+            if (entitiesWithServices is null || entitiesWithServices.Contains(entity))
+                sb.AppendLine($"using {projectName}.Application.{module}.Services;");
         }
         sb.AppendLine($"using {projectName}.Infrastructure.Persistence;");
         sb.AppendLine($"using {projectName}.Infrastructure.Repositories;");
@@ -1065,7 +1123,8 @@ static string GenerateProgramCs(string projectName, string targetTier, List<stri
         foreach (var entity in entities)
         {
             sb.AppendLine($"builder.Services.AddScoped<I{entity}Repository, {entity}Repository>();");
-            sb.AppendLine($"builder.Services.AddScoped<I{entity}Service, {entity}Service>();");
+            if (entitiesWithServices is null || entitiesWithServices.Contains(entity))
+                sb.AppendLine($"builder.Services.AddScoped<I{entity}Service, {entity}Service>();");
         }
     }
 
