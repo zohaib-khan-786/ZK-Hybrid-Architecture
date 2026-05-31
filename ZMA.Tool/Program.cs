@@ -424,7 +424,7 @@ public static class Program
 
         // --- _ViewImports.cshtml ---
         File.WriteAllText(Path.Combine(viewsDir, "_ViewImports.cshtml"),
-            $@"@using {projectName}.Presentation.Models
+            $@"@using {projectName}.Presentation
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 ");
 
