@@ -229,18 +229,14 @@ The `render.yaml` at the repo root configures everything — a free PostgreSQL d
 - Files watermarked with a comment header
 - No expiration
 
-### Pro Edition — $29 Lifetime
+### Pro Edition
 - **Up to 99 entities**
 - No watermarks
 - Machine-locked to your workstation (first activation binds the key)
 
 ### How to Buy
 
-1. Send **$29** via:
-   - **Payoneer**: `killerzobi893@gmail.com`
-   - **Nayapay**: `03481809798 — Zohaib Khan`
-2. Email `killerzobi893@gmail.com` with your full name
-3. I'll reply with your **Pro license key**
+To purchase a Pro license, email `killerzobi893@gmail.com` — license keys are issued within 24 hours.
 
 Or run after purchase:
 ```shell
